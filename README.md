@@ -9664,7 +9664,12 @@ gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadap
 ## Для выполнения этого задания, я использовал следующие команды:
 mkdir boost-libs
 cp /usr/local/lib/libboost_*.a /home/vboxuser/boost-libs
-### 10.
+### 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
+## Для выполнения этого задания, я использовал команду:
+ls -lh boost-libs
+## Вывод в консоль:
+
+
 
 
 
