@@ -131,8 +131,11 @@ tar -xf boost_1_69_0.tar.gz
 ## 3. Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
 ### Для выполнения этого задания, я использовал команду:
 ```sh
-find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l
+find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l 
 ```
+-maxdepth 1 - позволяет не учитывать поддиректории
+_type f - ищем файлы
+wc -l - команда для подсчета
 ### Вывод в консоль:
 ```sh
 12
@@ -183,6 +186,7 @@ boost_1_69_0/boost/type_erasure/any.hpp
 1)cd boost_1_69_0
 2)grep -r "boost::asio"
 ```
+grep - ищет текст в файлах
 ### Вывод в консоль:
 ```sh
 boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __io_service__ ['boost::asio::io_sevice]]
@@ -8765,6 +8769,10 @@ boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_target_address(boost::asio:
 2) ./bootstrap.sh --prefix=/usr/local
 3) ./b2 install
 ```
+1) - установка компилятора
+2) - настройка boost перед компиляцицей
+3) - компиляция библиотек Boost
+
 ## Вывод в консоль: 
 1)
 ```sh
@@ -9794,6 +9802,7 @@ cp /usr/local/lib/libboost_*.a /home/vboxuser/boost-libs
 ```sh
 ls -lh boost-libs
 ```
+libboost_*.a - поиск статических библиотек
 ## Вывод в консоль:
 ```sh
 total 28M
@@ -9835,6 +9844,7 @@ total 28M
 ```sh
 ls -lhS boost-libs | head -11
 ```
+head -11 - вывод первых 10 и заголовка
 ## Вывод в консоль:
 ```sh
 total 28M
