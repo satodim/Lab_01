@@ -3,7 +3,6 @@
 ### Для выполнения этого адания, я использовал следующую команду: 
 wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 ### Вывод в консоль:
-wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 --2026-02-23 12:16:26--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 Resolving sourceforge.net (sourceforge.net)... 104.18.13.149, 104.18.12.149, 2606:4700::6812:d95, ...
 Connecting to sourceforge.net (sourceforge.net)|104.18.13.149|:443... connected.
