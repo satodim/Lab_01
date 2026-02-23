@@ -9655,12 +9655,17 @@ In file included from /usr/include/c++/13/string:49,
   117 |     struct unary_function
       |            ^~~~~~~~~~~~~~
 
-    "g++"   -fvisibility-inlines-hidden -m64 -pthread -O3 -finline-functions -Wno-inline -Wall -fvisibility=hidden  -DBOOST_ALL_NO_LIB=1 -DBOOST_CHRONO_STATIC_LINK=1 -DBOOST_LOCALE_NO_WINAPI_BACKEND=1 -DBOOST_LOCALE_WITH_ICONV=1 -DBOOST_LOCALE_WITH_ICU=1 -DBOOST_SYSTEM_STATIC_LINK=1 -DBOOST_THREAD_BUILD_LIB=1 -DBOOST_THREAD_NO_LIB=1 -DBOOST_THREAD_POSIX -DBOOST_THREAD_USE_LIB=1 -DNDEBUG  -I"." -c -o "bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/collator.o" "libs/locale/src/icu/collator.cpp"
+    "g++"   -fvisibility-inlines-hidden -m64 -pthread -O3 -finline-functions -Wno-inline -Wall -fvisibility=hidden  -DBOOST_ALL_NO_LIB=1 -DBOOST_CHRONO_STATIC_LINK=1 -DBOOST_LOCALE_NO_WINAPI_BACKEND=1 -DBOOST_LOCALE_WITH_ICONV=1 -DBOOST_LOCALE_WITH_ICU=1 -DBOOST_SYSTEM_STATIC_LINK=1 -DBOOST_THREAD_BUILD_LIB=1 -DBOOST_THREAD_NO_LIB=1 -DBOOST_THREAD_POSIX -DBOOST_THREAD_USE_LIB=1 -DNDEBUG  -I"." -c -o"bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/collator.o" "libs/locale/src/icu/collator.cpp"
 
 ...failed gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/collator.o...
 gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/conversion.o
 gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/date_time.o
-### 9.
+### 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
+## Для выполнения этого задания, я использовал следующие команды:
+mkdir boost-libs
+cp /usr/local/lib/libboost_*.a ~/boost-libs/ 2>/dev/null
+## Вывод в консоль:
+
 
 
 
