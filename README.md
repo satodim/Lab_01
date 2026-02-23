@@ -9705,6 +9705,17 @@ total 28M
 ## Для выполнения этого задания, я использовал команду:
 ls -lhS boost-libs | head -11
 ## Вывод в консоль:
+total 28M
+-rw-r--r-- 1 root root 4.5M Feb 22 16:11 libboost_wave.a
+-rw-r--r-- 1 root root 3.2M Feb 22 16:11 libboost_regex.a
+-rw-r--r-- 1 root root 2.7M Feb 22 16:11 libboost_math_tr1.a
+-rw-r--r-- 1 root root 2.7M Feb 22 16:11 libboost_math_tr1l.a
+-rw-r--r-- 1 root root 2.6M Feb 22 16:11 libboost_math_tr1f.a
+-rw-r--r-- 1 root root 2.3M Feb 22 16:11 libboost_test_exec_monitor.a
+-rw-r--r-- 1 root root 2.3M Feb 22 16:11 libboost_unit_test_framework.a
+-rw-r--r-- 1 root root 1.6M Feb 22 16:11 libboost_program_options.a
+-rw-r--r-- 1 root root 1.2M Feb 22 16:11 libboost_serialization.a
+-rw-r--r-- 1 root root 845K Feb 22 16:11 libboost_graph.a
 
 
 
