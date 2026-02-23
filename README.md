@@ -89,9 +89,11 @@ $ gist REPORT.md
 
 ## 1. Скачайте библиотеку boost с помощью утилиты wget. Адрес для скачивания https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz.
 ### Для выполнения этого адания, я использовал следующую команду: 
-```
+```sh
 wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
+```
 ### Вывод в консоль:
+```sh
 --2026-02-23 12:16:26--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 Resolving sourceforge.net (sourceforge.net)... 104.18.13.149, 104.18.12.149, 2606:4700::6812:d95, ...
 Connecting to sourceforge.net (sourceforge.net)|104.18.13.149|:443... connected.
@@ -123,47 +125,47 @@ boost_1_69_0.tar.gz 100%[===================>] 106.53M  4.32MB/s    in 49s
 ```
 ## 2. Разархивируйте скаченный файл в директорию ~/boost_1_69_0
 ### Для выполнения этого задания я использовал команду:
-```
+```sh
 tar -xf boost_1_69_0.tar.gz
 ```
 ## 3. Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
 ### Для выполнения этого задания, я использовал команду:
-```
+```sh
 find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l
 ```
 ### Вывод в консоль:
-```
+```sh
 12
 ```
 ## 4. Подсчитайте количество файлов в директории ~/boost_1_69_0 включая вложенные директории.
 ### Для выполнения этого задания, я использовал следующую команду:
-```
+```sh
 find ~/boost_1_69_0 -type f | wc -l
 ```
 ### Вывод в консоль:
-```
+```sh
 61191
 ```
 ## 5. Подсчитайте количество заголовочных файлов, файлов с расширением .cpp, сколько остальных файлов (не заголовочных и не .cpp).
 ### Для выполнения этого задания, я использовал следующие команды:
-```
+```sh
 1) find boost_1_69_0 -type f \( -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.hxx" \) | wc -l
 2) find boost_1_69_0 -type f -name "*.cpp" | wc -l
 3) find boost_1_69_0 -type f ! \( -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.hxx" -o -name "*.cpp" \) | wc -l
 ```
 ### Вывод в консоль:
-```
+```sh
 1) 15208
 2) 13774
 3) 32209
 ```
 ## 6. Найдите полный пусть до файла any.hpp внутри библиотеки boost.
 ### Для выполнения этого задания, я использовал следующую команду:
-```
+```sh
 find boost_1_69_0/boost -name "any.hpp" -type f
 ```
 ### Вывод в консоль:
-```
+```sh
 boost_1_69_0/boost/fusion/include/any.hpp
 boost_1_69_0/boost/fusion/algorithm/query/detail/any.hpp
 boost_1_69_0/boost/fusion/algorithm/query/any.hpp
@@ -177,12 +179,12 @@ boost_1_69_0/boost/type_erasure/any.hpp
 ```
 ## 7. Выведите в консоль все файлы, где упоминается последовательность boost::asio.
 ### Для выполнения этого задания, я использовал следующие команды:
-```
+```sh
 1)cd boost_1_69_0
 2)grep -r "boost::asio"
 ```
 ### Вывод в консоль:
-```
+```sh
 boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __io_service__ ['boost::asio::io_sevice]]
 boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __yield_context__ ['boost::asio::yield_context]]
 boost_1_69_0/libs/coroutine2/doc/motivation.qbk:            session(boost::asio::io_service& io_service) :
@@ -8758,14 +8760,14 @@ boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_target_address(boost::asio:
 ```
 ### 8. Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 ## Для выполнения, я исп. следующие команды:
-```
+```sh
 1) sudo apt install g++ build-essential
 2) ./bootstrap.sh --prefix=/usr/local
 3) ./b2 install
 ```
 ## Вывод в консоль: 
 1)
-```
+```sh
 eading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -8852,7 +8854,7 @@ Processing triggers for man-db (2.12.0-4build2) ...
 Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
 ```
 2)
-```
+```sh
 Building Boost.Build engine with toolset gcc... tools/build/src/engine/bin.linuxx86_64/b2
 Unicode/ICU support for Boost.Regex?... /usr
 Generating Boost.Build configuration in project-config.jam...
@@ -8874,7 +8876,7 @@ Further information:
      http://www.boost.org/build/doc/html/index.html
 ```
 3)
-```
+```sh
 Performing configuration checks
 
     - default address-model    : 64-bit (cached)
@@ -9783,17 +9785,17 @@ gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadap
 ```
 ### 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
 ## Для выполнения этого задания, я использовал следующие команды:
-```
+```sh
 mkdir boost-libs
 cp /usr/local/lib/libboost_*.a /home/vboxuser/boost-libs
 ```
 ### 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
 ## Для выполнения этого задания, я использовал команду:
-```
+```sh
 ls -lh boost-libs
 ```
 ## Вывод в консоль:
-```
+```sh
 total 28M
 -rw-r--r-- 1 root root 2.6K Feb 22 16:11 libboost_atomic.a
 -rw-r--r-- 1 root root 235K Feb 22 16:11 libboost_chrono.a
@@ -9830,11 +9832,11 @@ total 28M
 ```
 ### 11. Найдите топ10 самых "тяжёлых".
 ## Для выполнения этого задания, я использовал команду:
-```
+```sh
 ls -lhS boost-libs | head -11
 ```
 ## Вывод в консоль:
-```
+```sh
 total 28M
 -rw-r--r-- 1 root root 4.5M Feb 22 16:11 libboost_wave.a
 -rw-r--r-- 1 root root 3.2M Feb 22 16:11 libboost_regex.a
