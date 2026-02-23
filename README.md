@@ -72,6 +72,8578 @@ boost_1_69_0/boost/type_erasure/any.hpp
 1)cd boost_1_69_0
 2)grep -r "boost::asio"
 ### Вывод в консоль:
+boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __io_service__ ['boost::asio::io_sevice]]
+boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __yield_context__ ['boost::asio::yield_context]]
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:            session(boost::asio::io_service& io_service) :
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                socket_.async_read_some(boost::asio::buffer(data_,max_length),
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                        boost::asio::placeholders::error,
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                        boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                    boost::asio::async_write(socket_,
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                        boost::asio::buffer(data_,bytes_transferred),
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::placeholders::error));
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                    socket_.async_read_some(boost::asio::buffer(data_,max_length),
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::placeholders::error,
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:            boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:        void session(boost::asio::io_service& io_service){
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:            boost::asio::ip::tcp::socket socket(io_service);
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::buffer(data),
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::yield[ec]);
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                    if (ec==boost::asio::error::eof)
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                    boost::asio::async_write(
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::buffer(data,length),
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                            boost::asio::yield[ec]);
+boost_1_69_0/libs/coroutine2/doc/motivation.qbk:                    if (ec==boost::asio::error::eof)
+boost_1_69_0/libs/process/doc/autodoc.xml:<para>The header which provides the basic asynchrounous features. It provides the on_exit property, which allows callbacks when the process exits. It also implements the necessary traits for passing an boost::asio::io_context, which is needed for asynchronous communication.</para><para>It also pulls the <ulink url="http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/buffer.html">boost::asio::buffer</ulink> into the boost::process namespace for convenience.</para><para> 
+boost_1_69_0/libs/process/doc/autodoc.xml:<warning><para>When used ignore_error it might get invoked on error. </para><para><computeroutput>on_exit</computeroutput> uses <computeroutput>boost::asio::signal_set</computeroutput> to listen for <computeroutput>SIGCHLD</computeroutput> on posix, and so has the same restrictions as that class (do not register a handler for <computeroutput>SIGCHLD</computeroutput> except by using <computeroutput>boost::asio::signal_set</computeroutput>). </para></warning>
+boost_1_69_0/libs/process/doc/autodoc.xml:<class name="async_pipe"><description><para>Class implementing and asnychronous I/O-Object for use with boost.asio. It is based on the corresponding I/O Object, that is either boost::asio::windows::stream_handle or boost::asio::posix::stream_descriptor.</para><para>It can be used directly with boost::asio::async_read or async_write.</para><para><note><para>The object is copyable, but that does invoke a handle duplicate. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<method name="source"><type>handle_type</type><parameter name="ios"><paramtype>::boost::asio::io_context &amp;</paramtype></parameter><purpose>Move the source out of this class and change the io_context. Qualified as rvalue. </purpose><description><para><note><para>Will always move. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<method name="sink"><type>handle_type</type><parameter name="ios"><paramtype>::boost::asio::io_context &amp;</paramtype></parameter><purpose>Move the sink out of this class and change the io_context. Qualified as rvalue. </purpose><description><para><note><para>Will always move </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<method name="source" cv="const"><type>handle_type</type><parameter name="ios"><paramtype>::boost::asio::io_context &amp;</paramtype></parameter><purpose>Copy the source out of this class and change the io_context. </purpose><description><para><note><para>Will always copy. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<method name="sink" cv="const"><type>handle_type</type><parameter name="ios"><paramtype>::boost::asio::io_context &amp;</paramtype></parameter><purpose>Copy the sink out of this class and change the io_context. </purpose><description><para><note><para>Will always copy </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<constructor><parameter name="ios"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><description><para>Construct a new <classname alt="boost::process::async_pipe">async_pipe</classname>, does automatically open the pipe. Initializes source and sink with the same io_context. <note><para>Windows creates a named pipe here, where the name is automatically generated. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<constructor><parameter name="ios_source"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="ios_sink"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><description><para>Construct a new <classname alt="boost::process::async_pipe">async_pipe</classname>, does automatically open the pipe. <note><para>Windows creates a named pipe here, where the name is automatically generated. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<constructor><parameter name="ios"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="name"><paramtype>const std::string &amp;</paramtype></parameter><description><para>Construct a new <classname alt="boost::process::async_pipe">async_pipe</classname>, does automatically open. Initializes source and sink with the same io_context.</para><para><note><para>Windows restricts possible names. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<constructor><parameter name="ios_source"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="ios_sink"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="name"><paramtype>const std::string &amp;</paramtype></parameter><description><para>Construct a new <classname alt="boost::process::async_pipe">async_pipe</classname>, does automatically open.</para><para><note><para>Windows restricts possible names. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:        </template><parameter name="ios"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="p"><paramtype>const <classname>basic_pipe</classname>&lt; CharT, Traits &gt; &amp;</paramtype></parameter><description><para>Construct the async-pipe from a pipe. <note><para>Windows requires a named pipe for this, if a the wrong type is used an exception is thrown. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:        </template><parameter name="ios_source"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="ios_sink"><paramtype>boost::asio::io_context &amp;</paramtype></parameter><parameter name="p"><paramtype>const <classname>basic_pipe</classname>&lt; CharT, Traits &gt; &amp;</paramtype></parameter><description><para>Construct the async-pipe from a pipe, with two different io_context objects. <note><para>Windows requires a named pipe for this, if a the wrong type is used an exception is thrown. </para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:        </template><parameter name="ios"><paramtype>boost::asio::io_context &amp;</paramtype><description><para>A reference to an <ulink url="http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference.html">io_context</ulink> </para></description></parameter><parameter name="exit_handler"><paramtype>ExitHandler &amp;&amp;</paramtype><description><para>The exit-handler for the signature <computeroutput>void(boost::system::error_code, int)</computeroutput></para></description></parameter><parameter name="args"><paramtype>Args &amp;&amp;...</paramtype></parameter><description><para>This function provides an asynchronous interface to process launching.</para><para>It uses the same properties and parameters as the other launching function, but is similar to the asynchronous functions in <ulink url="http://www.boost.org/doc/libs/release/doc/html/boost_asio.html">boost.asio</ulink></para><para>It uses <ulink url="http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/async_result.html">asio::async_result</ulink> to determine the return value (from the second parameter, <computeroutput>exit_handler</computeroutput>).</para><para>
+boost_1_69_0/libs/process/doc/autodoc.xml:Utilizing <computeroutput>boost.asio</computeroutput> asynchronous I/O is provided.</para><para><programlisting language="c++">boost::asio::io_context ios;
+boost_1_69_0/libs/process/doc/autodoc.xml:<listitem><para><computeroutput>boost::asio::const_buffer</computeroutput> <footnote><para> Constructed with <code>boost::asio::buffer</code></para></footnote> </para></listitem><listitem><para><computeroutput>boost::asio::mutable_buffer</computeroutput> <footnote><para> Constructed with <code>boost::asio::buffer</code></para></footnote> </para></listitem><listitem><para><computeroutput>boost::asio::streambuf</computeroutput></para></listitem></itemizedlist>
+boost_1_69_0/libs/process/doc/autodoc.xml:boost::asio::io_context ios;
+boost_1_69_0/libs/process/doc/autodoc.xml:</programlisting></para><para><computeroutput>boost::asio::buffer</computeroutput> is also available in the <computeroutput>boost::process</computeroutput> namespace.</para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<warning><para>This feature requires <computeroutput>boost/process/async.hpp</computeroutput> to be included and a reference to <computeroutput>boost::asio::io_context</computeroutput> to be passed to the launching function.</para></warning>
+boost_1_69_0/libs/process/doc/autodoc.xml:<listitem><para><computeroutput>boost::asio::mutable_buffer</computeroutput> <footnote><para> Constructed with <code>boost::asio::buffer</code></para></footnote> </para></listitem><listitem><para><computeroutput>boost::asio::streambuf</computeroutput></para></listitem><listitem><para><computeroutput>std::future&lt;std::vector&lt;char&gt;&gt;</computeroutput></para></listitem><listitem><para><computeroutput>std::future&lt;std::string&gt;</computeroutput></para></listitem></itemizedlist>
+boost_1_69_0/libs/process/doc/autodoc.xml:</programlisting></para><para><note><para><computeroutput>boost::asio::buffer</computeroutput> is also available in the <computeroutput>boost::process</computeroutput> namespace.</para></note>
+boost_1_69_0/libs/process/doc/autodoc.xml:<warning><para>This feature requires <computeroutput>boost/process/async.hpp</computeroutput> to be included and a reference to <computeroutput>boost::asio::io_context</computeroutput> to be passed to the launching function.</para></warning>
+boost_1_69_0/libs/process/doc/autodoc.xml:<warning><para>This function does not allow asynchronous operations, since it cannot wait for the end of the process. It will fail to compile if a reference to <computeroutput>boost::asio::io_context</computeroutput> is passed. </para></warning>
+boost_1_69_0/libs/process/doc/tutorial.qbk:[def io_service  [@http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/io_service.html boost::asio::io_service]]
+boost_1_69_0/libs/process/doc/tutorial.qbk:[def asio_buffer [@http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/buffer.html boost::asio::buffer]]
+boost_1_69_0/libs/process/doc/tutorial.qbk:[def asio_async_read [@http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/async_read.html boost::asio::async_read]]
+boost_1_69_0/libs/process/doc/tutorial.qbk:[def boost::asio::yield_context [@http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/yield_context.html boost::asio::yield_context]]
+boost_1_69_0/libs/process/doc/tutorial.qbk:[def boost::asio::coroutine [@http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/coroutine.html boost::asio::coroutine]]
+boost_1_69_0/libs/process/doc/tutorial.qbk:boost::asio::io_service ios;
+boost_1_69_0/libs/process/doc/extend.qbk:[def io_service  [@http://www.boost.org/doc/libs/release/doc/html/boost_asio/reference/io_service.html boost::asio::io_service]]
+boost_1_69_0/libs/process/doc/extend.qbk:[caution `on_exit_handler` uses `boost::asio::signal_set` to listen for SIGCHLD on posix. The application must not also register a signal handler for SIGCHLD using functions such as `signal()` or `sigaction()` (but using `boost::asio::signal_set` is fine). ]
+boost_1_69_0/libs/process/example/wait.cpp:        boost::asio::io_context io_context;
+boost_1_69_0/libs/process/example/io.cpp:        boost::asio::io_context io_context;
+boost_1_69_0/libs/process/example/io.cpp:        boost::asio::async_write(p1, boost::asio::buffer(value),  []( const boost::system::error_code&, std::size_t){});
+boost_1_69_0/libs/process/example/io.cpp:        boost::asio::async_read (p2, boost::asio::buffer(in_buf), []( const boost::system::error_code&, std::size_t){});
+boost_1_69_0/libs/process/example/io.cpp:        boost::asio::io_context io_context;
+boost_1_69_0/libs/process/example/io.cpp:        boost::asio::io_context io_context;
+boost_1_69_0/libs/process/example/async_io.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/example/async_io.cpp:    boost::asio::streambuf buffer;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    boost::asio::streambuf &buffer_;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    read_handler(boost::asio::streambuf &buffer) : buffer_(buffer) {}
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    boost::asio::streambuf buffer1;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    boost::asio::async_read_until(p1, buffer1, '\n',
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    boost::asio::streambuf buffer2;
+boost_1_69_0/libs/process/test/bind_stdout_stderr.cpp:    boost::asio::async_read_until(p2, buffer2, '\n',
+boost_1_69_0/libs/process/test/system_test1.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/system_test1.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/async_system_stackful.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackful.cpp:            [&](boost::asio::yield_context yield_)
+boost_1_69_0/libs/process/test/async_system_stackful.cpp:    boost::asio::spawn(ios, stackful);
+boost_1_69_0/libs/process/test/bind_stdin.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/bind_stdin.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/bind_stdin.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/bind_stdin.cpp:    boost::asio::streambuf sb;
+boost_1_69_0/libs/process/test/bind_stdin.cpp:    boost::asio::async_write(p1, sb,
+boost_1_69_0/libs/process/test/spawn.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/spawn.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/spawn.cpp:    boost::asio::streambuf &buffer_;
+boost_1_69_0/libs/process/test/spawn.cpp:    read_handler(boost::asio::streambuf &buffer) : buffer_(buffer) {}
+boost_1_69_0/libs/process/test/spawn.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/spawn.cpp:    boost::asio::streambuf buffer;
+boost_1_69_0/libs/process/test/spawn.cpp:    boost::asio::async_read_until(p, buffer, '\n',
+boost_1_69_0/libs/process/test/on_exit2.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/exit_code.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/exit_code.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/exit_code.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/exit_code.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async_fut.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async_fut.cpp:    boost::asio::streambuf in_buf;
+boost_1_69_0/libs/process/test/async_fut.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/bind_stdout.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/bind_stdout.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/bind_stdout.cpp:    boost::asio::streambuf &buffer_;
+boost_1_69_0/libs/process/test/bind_stdout.cpp:    read_handler(boost::asio::streambuf &buffer) : buffer_(buffer) {}
+boost_1_69_0/libs/process/test/bind_stdout.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/bind_stdout.cpp:    boost::asio::streambuf buffer;
+boost_1_69_0/libs/process/test/bind_stdout.cpp:    boost::asio::async_read_until(p, buffer, '\n',
+boost_1_69_0/libs/process/test/async_system_stackless.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackless.cpp:    struct stackless_t : boost::asio::coroutine
+boost_1_69_0/libs/process/test/async_system_stackless.cpp:        boost::asio::io_context & ios;
+boost_1_69_0/libs/process/test/async_system_stackless.cpp:        stackless_t(boost::asio::io_context & ios_,
+boost_1_69_0/libs/process/test/async_system_fail.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_fail.cpp:    bp::async_system(ios, boost::asio::use_future, "foo", bp::ignore_error);
+boost_1_69_0/libs/process/test/async_system_stackful_except.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackful_except.cpp:            [&](boost::asio::yield_context yield_)
+boost_1_69_0/libs/process/test/async_system_stackful_except.cpp:    boost::asio::spawn(ios, stackful);
+boost_1_69_0/libs/process/test/async_system_future.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_future.cpp:                              ios, boost::asio::use_future,
+boost_1_69_0/libs/process/test/async_system_future.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_future.cpp:                              ios, boost::asio::use_future,
+boost_1_69_0/libs/process/test/wait.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/wait.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async_pipe.cpp:namespace asio = boost::asio;
+boost_1_69_0/libs/process/test/on_exit3.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/system_test2.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/system_test2.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:            [&](boost::asio::yield_context yield_)
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:    boost::asio::spawn(ios, stackful);
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:            [&](boost::asio::yield_context yield_)
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:    boost::asio::spawn(ios, stackful);
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:            [&](boost::asio::yield_context yield_)
+boost_1_69_0/libs/process/test/async_system_stackful_error.cpp:    boost::asio::spawn(ios, stackful);
+boost_1_69_0/libs/process/test/bind_stderr.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/bind_stderr.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/bind_stderr.cpp:    boost::asio::streambuf &buffer_;
+boost_1_69_0/libs/process/test/bind_stderr.cpp:    read_handler(boost::asio::streambuf &buffer) : buffer_(buffer) {}
+boost_1_69_0/libs/process/test/bind_stderr.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/bind_stderr.cpp:    boost::asio::streambuf buffer;
+boost_1_69_0/libs/process/test/bind_stderr.cpp:    boost::asio::async_read_until(p, buffer, '\n', read_handler(buffer));
+boost_1_69_0/libs/process/test/async.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context1;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context2;
+boost_1_69_0/libs/process/test/async.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::streambuf buf;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::streambuf buf;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::streambuf in_buf;
+boost_1_69_0/libs/process/test/async.cpp:    using namespace boost::asio;
+boost_1_69_0/libs/process/test/async.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/process/test/on_exit.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/process/test/spawn_fail.cpp:typedef boost::asio::windows::stream_handle pipe_end;
+boost_1_69_0/libs/process/test/spawn_fail.cpp:typedef boost::asio::posix::stream_descriptor pipe_end;
+boost_1_69_0/libs/process/test/spawn_fail.cpp:    boost::asio::io_context ios;
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`].]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::invalid_service_owner][Thrown if the service's owning [link boost_asio.reference.execution_context `execution_context`] is not the [link boost_asio.reference.execution_context `execution_context`] object specified by the `e` parameter. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:  typedef boost::asio::async_result< typename decay< CompletionToken >::type, Signature >::completion_handler_type completion_handler_type;
+boost_1_69_0/libs/asio/doc/reference.qbk:     // boost::asio::error::not_found. Otherwise, contains the
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::async_connect(s, results, connect_handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:     // boost::asio::error::not_found. Otherwise, contains the
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This overload assumes that a default constructed object of type `Iterator` represents the end of the sequence. This is a valid assumption for iterator types such as `boost::asio::ip::tcp::resolver::iterator`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:     // boost::asio::error::not_found. Otherwise, contains the
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_connect(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:     // boost::asio::error::not_found. Otherwise, contains the
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:It would be used with the `boost::asio::connect` function as follows: 
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::async_connect(s, results,
+boost_1_69_0/libs/asio/doc/reference.qbk:     // boost::asio::error::not_found. Otherwise, contains the
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This overload assumes that a default constructed object of type `Iterator` represents the end of the sequence. This is a valid assumption for iterator types such as `boost::asio::ip::tcp::resolver::iterator`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:     // boost::asio::error::not_found. Otherwise, contains the
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:It would be used with the `boost::asio::connect` function as follows: 
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::async_connect(s, i, end,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read(s, boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_at(d, 42, boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_at(d, 42,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, data, '\n', handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, data, "\r\n", handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, data,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   typedef boost::asio::buffers_iterator<
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::const_buffers_1> iterator;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, data, match_whitespace, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, data, match_char('a'), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, b, '\n', handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, b, "\r\n", handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, b, boost::regex("\r\n"), handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   typedef boost::asio::buffers_iterator<
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::streambuf::const_buffers_type> iterator;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, b, match_whitespace, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_read_until(s, b, match_char('a'), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_write(s, boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_write(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_write_at(d, 42, boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::async_write_at(d, 42,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_receive(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), sender_endpoint, handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_send(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint destination(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), destination, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_wait(boost::asio::ip::tcp::socket::wait_read, wait_handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying socket is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.receive(boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint sender_endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), sender_endpoint);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send(boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint destination(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send_to(boost::asio::buffer(data, size), destination);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:      typename ``[link boost_asio.reference.TimeTraits TimeTraits]`` = boost::asio::time_traits<Time>>
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::deadline_timer timer(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::deadline_timer timer(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:     if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/doc/reference.qbk:* The `boost::asio::basic_deadline_timer::expires_from_now()` function cancels any pending asynchronous waits, and returns the number of asynchronous waits that were cancelled. If it returns 0 then you were too late and the wait handler has already been executed, or will soon be executed. If it returns 1 then the wait handler was successfully cancelled.
+boost_1_69_0/libs/asio/doc/reference.qbk:* If a wait handler is cancelled, the boost::system::error\_code passed to it contains the value `boost::asio::error::operation_aborted`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:* The timer was cancelled, in which case the handler is passed the error code `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of one pending asynchronous wait operation against the timer. Handlers are cancelled in FIFO order. The handler for the cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of one pending asynchronous wait operation against the timer. Handlers are cancelled in FIFO order. The handler for the cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:  typedef boost::asio::io_context::executor_type executor_type;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_receive(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), 0, sender_endpoint, handler); 
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_send(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint destination(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), destination, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_wait(boost::asio::ip::tcp::socket::wait_read, wait_handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying socket is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.receive(boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint sender_endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), sender_endpoint);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send(boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint destination(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send_to(boost::asio::buffer(data, size), destination);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_receive(boost::asio::buffer(data, size), out_flags, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_send(boost::asio::buffer(data, size), 0, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_wait(boost::asio::ip::tcp::socket::wait_read, wait_handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying socket is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.receive(boost::asio::buffer(data, size), out_flags);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.receive(boost::asio::buffer(data, size), 0, out_flags);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send(boost::asio::buffer(data, size), 0);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_wait(boost::asio::ip::tcp::socket::wait_read, wait_handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying socket is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), port);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(acceptor.accept());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(acceptor.accept(ec));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(acceptor.accept());
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(acceptor.accept(io_context2, ec));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(acceptor.accept(endpoint));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(acceptor.accept(endpoint, ec));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::tcp::socket peer)
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::tcp::socket peer)
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::tcp::socket peer)
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::tcp::socket peer)
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint;
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::tcp::acceptor::wait_read,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor::non_blocking_io command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor::non_blocking_io command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.listen(boost::asio::socket_base::max_listen_connections, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = acceptor.local_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying acceptor is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying acceptor is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying acceptor is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the acceptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the acceptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the acceptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.open(boost::asio::ip::tcp::v4(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous accept operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native acceptor is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous accept operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native acceptor is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.wait(boost::asio::ip::tcp::acceptor::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.wait(boost::asio::ip::tcp::acceptor::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time associated with the stream. Stream operations performed after this time (where the operations cannot be completed using the internal buffers) will fail with the error `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time associated with the stream. Stream operations performed after this time (where the operations cannot be completed using the internal buffers) will fail with the error `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time associated with the stream. Stream operations performed after this time (where the operations cannot be completed using the internal buffers) will fail with the error `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time associated with the stream. Stream operations performed after this time (where the operations cannot be completed using the internal buffers) will fail with the error `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time associated with the stream. Stream operations performed after this time (where the operations cannot be completed using the internal buffers) will fail with the error `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time associated with the stream. Stream operations performed after this time (where the operations cannot be completed using the internal buffers) will fail with the error `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_read_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_receive(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_receive(boost::asio::buffer(data, size), 0, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_send(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_send(boost::asio::buffer(data, size), 0, handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_wait(boost::asio::ip::tcp::socket::wait_read, wait_handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.async_write_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.bind(boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::ip::tcp::v4(), 12345), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:Calls to `cancel()` will always fail with `boost::asio::error::operation_not_supported` when run on Windows XP, Windows Server 2003, and earlier versions of Windows, unless BOOST\_ASIO\_ENABLE\_CANCELIO is defined. However, the CancelIo function has two issues that should be considered before enabling its use:
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the socket. Any asynchronous send, receive or connect operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::ip::address::from_string("1.2.3.4"), 12345);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying socket is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying socket is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:               boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::interrupted)
+boost_1_69_0/libs/asio/doc/reference.qbk:           if (ec == boost::asio::error::would_block
+boost_1_69_0/libs/asio/doc/reference.qbk:               || ec == boost::asio::error::try_again)
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the socket's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4());
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.open(boost::asio::ip::tcp::v4(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.read_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.receive(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.receive(boost::asio::buffer(data, size), 0);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous connect, send and receive operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. Ownership of the native socket is then transferred to the caller.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is unsupported on Windows versions prior to Windows 8.1, and will fail with `boost::asio::error::operation_not_supported` on these platforms. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.send(boost::asio::buffer(data, size), 0);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.shutdown(boost::asio::ip::tcp::socket::shutdown_send, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.wait(boost::asio::ip::tcp::socket::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   socket.write_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf::mutable_buffers_type bufs = b.prepare(512);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf::mutable_buffers_type bufs = b.prepare(512);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf::mutable_buffers_type bufs = b.prepare(512);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:     if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/doc/reference.qbk:* The `boost::asio::basic_waitable_timer::expires_after()` function cancels any pending asynchronous waits, and returns the number of asynchronous waits that were cancelled. If it returns 0 then you were too late and the wait handler has already been executed, or will soon be executed. If it returns 1 then the wait handler was successfully cancelled.
+boost_1_69_0/libs/asio/doc/reference.qbk:* If a wait handler is cancelled, the boost::system::error\_code passed to it contains the value `boost::asio::error::operation_aborted`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:* The timer was cancelled, in which case the handler is passed the error code `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous wait operations against the timer. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of one pending asynchronous wait operation against the timer. Handlers are cancelled in FIFO order. The handler for the cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of one pending asynchronous wait operation against the timer. Handlers are cancelled in FIFO order. The handler for the cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function sets the expiry time. Any pending asynchronous wait operations will be cancelled. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:The `boost::asio::buffer` function is used to create a buffer object to represent raw memory, an array of POD elements, a vector of POD elements, or a std::string. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   sock.send(boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:In the above example, the return value of `boost::asio::buffer` meets the requirements of the ConstBufferSequence concept so that it may be directly passed to the socket's write function. A buffer created for modifiable memory also meets the requirements of the MutableBufferSequence concept.
+boost_1_69_0/libs/asio/doc/reference.qbk:   size_t bytes_transferred = sock.receive(boost::asio::buffer(d1));
+boost_1_69_0/libs/asio/doc/reference.qbk:   bytes_transferred = sock.receive(boost::asio::buffer(d2));
+boost_1_69_0/libs/asio/doc/reference.qbk:   bytes_transferred = sock.receive(boost::asio::buffer(d3));
+boost_1_69_0/libs/asio/doc/reference.qbk:   bytes_transferred = sock.receive(boost::asio::buffer(d4)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::const_buffer b2 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   vector<unsigned char> data(boost::asio::buffer_size(buffers));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::buffer_copy(boost::asio::buffer(data), buffers); 
+boost_1_69_0/libs/asio/doc/reference.qbk:For the `boost::asio::buffer` overloads that accept an argument of type std::vector, the buffer objects returned are invalidated by any vector operation that also invalidates all references, pointers and iterators referring to the elements in the sequence (C++ Std, 23.2.4)
+boost_1_69_0/libs/asio/doc/reference.qbk:For the `boost::asio::buffer` overloads that accept an argument of type std::basic\_string, the buffer objects returned are invalidated according to the rules defined for invalidation of references, pointers and iterators referring to elements of the sequence (C++ Std, 21.3).
+boost_1_69_0/libs/asio/doc/reference.qbk:   b1 = boost::asio::buffer(a); 
+boost_1_69_0/libs/asio/doc/reference.qbk:represents the entire array, `{ 'a', 'b', 'c', 'd', 'e' }`. An optional second argument to the `boost::asio::buffer` function may be used to limit the size, in bytes, of the buffer:
+boost_1_69_0/libs/asio/doc/reference.qbk:   b2 = boost::asio::buffer(a, 3); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   b4 = boost::asio::buffer(b1 + 1, 3); 
+boost_1_69_0/libs/asio/doc/reference.qbk:     boost::asio::buffer(d1),
+boost_1_69_0/libs/asio/doc/reference.qbk:     boost::asio::buffer(d2),
+boost_1_69_0/libs/asio/doc/reference.qbk:     boost::asio::buffer(d3) };
+boost_1_69_0/libs/asio/doc/reference.qbk:   bufs2.push_back(boost::asio::buffer(d1));
+boost_1_69_0/libs/asio/doc/reference.qbk:   bufs2.push_back(boost::asio::buffer(d2));
+boost_1_69_0/libs/asio/doc/reference.qbk:   bufs2.push_back(boost::asio::buffer(d3));
+boost_1_69_0/libs/asio/doc/reference.qbk:(Deprecated: Use the `data()` member function.) The `boost::asio::buffer_cast` function is used to obtain a pointer to the underlying memory region associated with a buffer. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::const_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   const unsigned char* p1 = boost::asio::buffer_cast<const unsigned char*>(b1);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b2 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   unsigned char* p2 = boost::asio::buffer_cast<unsigned char*>(b2);
+boost_1_69_0/libs/asio/doc/reference.qbk:The `boost::asio::buffer_cast` function permits violations of type safety, so uses of it in application code should be carefully considered. 
+boost_1_69_0/libs/asio/doc/reference.qbk:The `boost::asio::buffer_copy` function is used to copy bytes from a source buffer (or buffer sequence) to a target buffer (or buffer sequence). 
+boost_1_69_0/libs/asio/doc/reference.qbk:The `boost::asio::buffer_sequence_begin` function returns an iterator pointing to the first element in a buffer sequence. 
+boost_1_69_0/libs/asio/doc/reference.qbk:The `boost::asio::buffer_sequence_end` function returns an iterator pointing to one past the end element in a buffer sequence. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   auto i = boost::asio::buffer_sequence_begin(buffers);
+boost_1_69_0/libs/asio/doc/reference.qbk:   auto end = boost::asio::buffer_sequence_end(buffers);
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the sequence is empty, the associated `error_code` is `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::connect(s, r.resolve(q)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the sequence is empty, set to `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::connect(s, r.resolve(q), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the sequence is empty, the associated `error_code` is `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This overload assumes that a default constructed object of type `Iterator` represents the end of the sequence. This is a valid assumption for iterator types such as `boost::asio::ip::tcp::resolver::iterator`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the sequence is empty, set to `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This overload assumes that a default constructed object of type `Iterator` represents the end of the sequence. This is a valid assumption for iterator types such as `boost::asio::ip::tcp::resolver::iterator`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the sequence is empty, the associated `error_code` is `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::connect(s, e.begin(), e.end()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the sequence is empty, set to `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::connect(s, e.begin(), e.end(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the sequence is empty, the associated `error_code` is `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:It would be used with the `boost::asio::connect` function as follows: 
+boost_1_69_0/libs/asio/doc/reference.qbk:   tcp::endpoint e = boost::asio::connect(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the sequence is empty, set to `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:It would be used with the `boost::asio::connect` function as follows: 
+boost_1_69_0/libs/asio/doc/reference.qbk:   tcp::endpoint e = boost::asio::connect(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the sequence is empty, the associated `error_code` is `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This overload assumes that a default constructed object of type `Iterator` represents the end of the sequence. This is a valid assumption for iterator types such as `boost::asio::ip::tcp::resolver::iterator`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the sequence is empty, set to `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This overload assumes that a default constructed object of type `Iterator` represents the end of the sequence. This is a valid assumption for iterator types such as `boost::asio::ip::tcp::resolver::iterator`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the sequence is empty, the associated `error_code` is `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:It would be used with the `boost::asio::connect` function as follows: 
+boost_1_69_0/libs/asio/doc/reference.qbk:   tcp::resolver::results_type::iterator i = boost::asio::connect(
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the sequence is empty, set to `boost::asio::error::not_found`. Otherwise, contains the error from the last connection attempt.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:It would be used with the `boost::asio::connect` function as follows: 
+boost_1_69_0/libs/asio/doc/reference.qbk:   tcp::resolver::results_type::iterator i = boost::asio::connect(
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::const_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::const_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::deadline_timer timer(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::deadline_timer timer(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:     if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/doc/reference.qbk:* The `boost::asio::basic_deadline_timer::expires_from_now()` function cancels any pending asynchronous waits, and returns the number of asynchronous waits that were cancelled. If it returns 0 then you were too late and the wait handler has already been executed, or will soon be executed. If it returns 1 then the wait handler was successfully cancelled.
+boost_1_69_0/libs/asio/doc/reference.qbk:* If a wait handler is cancelled, the boost::system::error\_code passed to it contains the value `boost::asio::error::operation_aborted`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:The `boost::asio::dynamic_buffer` function is used to create a dynamically resized buffer from a `std::basic_string` or `std::vector`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::const_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::const_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:  static const boost::system::error_category & addrinfo_category = boost::asio::error::get_addrinfo_category();
+boost_1_69_0/libs/asio/doc/reference.qbk:  static const boost::system::error_category & misc_category = boost::asio::error::get_misc_category();
+boost_1_69_0/libs/asio/doc/reference.qbk:  static const boost::system::error_category & netdb_category = boost::asio::error::get_netdb_category();
+boost_1_69_0/libs/asio/doc/reference.qbk:  static const boost::system::error_category & ssl_category = boost::asio::error::get_ssl_category();
+boost_1_69_0/libs/asio/doc/reference.qbk:  static const boost::system::error_category & system_category = boost::asio::error::get_system_category();
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`].]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::invalid_service_owner][Thrown if the service's owning [link boost_asio.reference.execution_context `execution_context`] is not the [link boost_asio.reference.execution_context `execution_context`] object specified by the `e` parameter. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`]. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The [link boost_asio.reference.experimental__detached_t `experimental::detached_t`] class is used to indicate that an asynchronous operation is detached. That is, there is no completion handler waiting for the operation's result. A [link boost_asio.reference.experimental__detached_t `experimental::detached_t`] object may be passed as a handler to an asynchronous operation, typically using the special value `boost::asio::experimental::detached`. For example:
+boost_1_69_0/libs/asio/doc/reference.qbk:   my_socket.async_send(my_buffer, boost::asio::experimental::detached);
+boost_1_69_0/libs/asio/doc/reference.qbk:   datagram_protocol p(boost::asio::ip::udp::v4()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   raw_protocol p(boost::asio::ip::icmp::v4()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   stream_protocol p(boost::asio::ip::tcp::v4()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:     if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/doc/reference.qbk:* The `boost::asio::basic_waitable_timer::expires_after()` function cancels any pending asynchronous waits, and returns the number of asynchronous waits that were cancelled. If it returns 0 then you were too late and the wait handler has already been executed, or will soon be executed. If it returns 1 then the wait handler was successfully cancelled.
+boost_1_69_0/libs/asio/doc/reference.qbk:* If a wait handler is cancelled, the boost::system::error\_code passed to it contains the value `boost::asio::error::operation_aborted`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::dispatch().) Request the io_context to invoke the given handler. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::post().) Request the io_context to invoke the given handler and return immediately. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::bind_executor().) Create a new handler that automatically dispatches the wrapped handler on the io_context. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:* `boost::asio::ip::tcp::socket` 
+boost_1_69_0/libs/asio/doc/reference.qbk:* `boost::asio::ip::tcp::acceptor` 
+boost_1_69_0/libs/asio/doc/reference.qbk:* `boost::asio::ip::udp::socket` 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::post(io_context, my_task);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::post(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:Some applications may need to prevent an [link boost_asio.reference.io_context `io_context`] object's `run()` call from returning when there is no more work to do. For example, the [link boost_asio.reference.io_context `io_context`] may be being run in a background thread that is launched prior to the application's asynchronous operations. The `run()` call may be kept running by creating an object of type boost::asio::executor\_work\_guard<io\_context::executor\_type>:
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::executor_work_guard<boost::asio::io_context::executor_type>
+boost_1_69_0/libs/asio/doc/reference.qbk:     = boost::asio::make_work_guard(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::executor_work_guard<boost::asio::io_context::executor_type>
+boost_1_69_0/libs/asio/doc/reference.qbk:     = boost::asio::make_work_guard(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`].]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::invalid_service_owner][Thrown if the service's owning [link boost_asio.reference.execution_context `execution_context`] is not the [link boost_asio.reference.execution_context `execution_context`] object specified by the `e` parameter. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`]. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & owner);
+boost_1_69_0/libs/asio/doc/reference.qbk:     (Deprecated: Use boost::asio::dispatch().) Request the strand to invoke the given handler. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:     (Deprecated: Use boost::asio::post().) Request the strand to invoke the given handler and return immediately. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::bind_executor().) Create a new handler that automatically dispatches the wrapped handler on the strand. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & context() const;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::dispatch().) Request the io_context to invoke the given handler. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::post().) Request the io_context to invoke the given handler and return immediately. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:    [(Deprecated: Use boost::asio::bind_executor().) Create a new handler that automatically dispatches the wrapped handler on the io_context. ]
+boost_1_69_0/libs/asio/doc/reference.qbk:* `boost::asio::ip::tcp::socket` 
+boost_1_69_0/libs/asio/doc/reference.qbk:* `boost::asio::ip::tcp::acceptor` 
+boost_1_69_0/libs/asio/doc/reference.qbk:* `boost::asio::ip::udp::socket` 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::post(io_context, my_task);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::post(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:Some applications may need to prevent an [link boost_asio.reference.io_context `io_context`] object's `run()` call from returning when there is no more work to do. For example, the [link boost_asio.reference.io_context `io_context`] may be being run in a background thread that is launched prior to the application's asynchronous operations. The `run()` call may be kept running by creating an object of type boost::asio::executor\_work\_guard<io\_context::executor\_type>:
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::executor_work_guard<boost::asio::io_context::executor_type>
+boost_1_69_0/libs/asio/doc/reference.qbk:     = boost::asio::make_work_guard(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::executor_work_guard<boost::asio::io_context::executor_type>
+boost_1_69_0/libs/asio/doc/reference.qbk:     = boost::asio::make_work_guard(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v4 & ipv4_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v6 & ipv6_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v4 & ipv4_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v6 & ipv6_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v4 & ipv4_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v6 & ipv6_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v4 & ipv4_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address_v6 & ipv6_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::ip::address_v4 to_v4() const;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::ip::address_v6 to_v6() const;
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::ip::address ``[link boost_asio.reference.ip__basic_endpoint.address.overload1 address]``() const;
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address & addr);
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::ip::address address() const;
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address & addr);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address & addr,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint ep(boost::asio::ip::tcp::v4(), 1234);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::endpoint ep(boost::asio::ip::udp::v6(), 9876);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::ip::address & addr,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous operations on the host resolver. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code. 
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:  const boost::asio::detail::addrinfo_type & hints() const;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::enable_loopback option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::enable_loopback option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::hops option(4);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::hops option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::address multicast_address =
+boost_1_69_0/libs/asio/doc/reference.qbk:     boost::asio::ip::address::from_string("225.0.0.1");
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::join_group option(multicast_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::address multicast_address =
+boost_1_69_0/libs/asio/doc/reference.qbk:     boost::asio::ip::address::from_string("225.0.0.1");
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::leave_group option(multicast_address);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::address_v4 local_interface =
+boost_1_69_0/libs/asio/doc/reference.qbk:     boost::asio::ip::address_v4::from_string("1.2.3.4");
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::multicast::outbound_interface option(local_interface);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), port);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::no_delay option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::unicast::hops option(4);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::unicast::hops option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::v6_only option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::v6_only option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), port);
+boost_1_69_0/libs/asio/doc/reference.qbk:   acceptor.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::mutable_buffer b1 = ...;
+boost_1_69_0/libs/asio/doc/reference.qbk:An argument placeholder, for use with boost::bind(), that corresponds to the bytes\_transferred argument of a handler for asynchronous functions such as `boost::asio::basic_stream_socket::async_write_some` or `boost::asio::async_write`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:An argument placeholder, for use with boost::bind(), that corresponds to the results argument of a handler for asynchronous functions such as `boost::asio::async_connect`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:An argument placeholder, for use with boost::bind(), that corresponds to the iterator argument of a handler for asynchronous functions such as `boost::asio::async_connect`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:An argument placeholder, for use with boost::bind(), that corresponds to the results argument of a handler for asynchronous functions such as boost::asio::basic\_resolver::async\_resolve. 
+boost_1_69_0/libs/asio/doc/reference.qbk:An argument placeholder, for use with boost::bind(), that corresponds to the signal\_number argument of a handler for asynchronous functions such as `boost::asio::signal_set::async_wait`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::posix::stream_descriptor::wait_read,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::descriptor_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the descriptor. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the descriptor. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying descriptor is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying descriptor is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying descriptor is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the descriptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the descriptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the descriptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:All outstanding asynchronous read or write operations will finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.wait(boost::asio::posix::stream_descriptor::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.wait(boost::asio::posix::stream_descriptor::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::descriptor_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.async_read_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::posix::stream_descriptor::wait_read,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.async_write_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::descriptor_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the descriptor. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the descriptor. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor::bytes_readable command;
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the underlying descriptor is in non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying descriptor is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the underlying descriptor is put into non-blocking mode and direct system calls may fail with `boost::asio::error::would_block` (or the equivalent system error).]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[ec][Set to indicate what error occurred, if any. If the `mode` is `false`, but the current value of `non_blocking()` is `true`, this function fails with `boost::asio::error::invalid_argument`, as the combination does not make sense. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:`true` if the descriptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the descriptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[mode][If `true`, the descriptor's synchronous operations will fail with `boost::asio::error::would_block` if they are unable to perform the requested operation immediately. If `false`, synchronous operations will block until complete.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:The non-blocking mode has no effect on the behaviour of asynchronous operations. Asynchronous operations will never fail with the error `boost::asio::error::would_block`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.read_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:All outstanding asynchronous read or write operations will finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error. 
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.wait(boost::asio::posix::stream_descriptor::wait_read);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::posix::stream_descriptor descriptor(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.wait(boost::asio::posix::stream_descriptor::wait_read, ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   descriptor.write_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(s, boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(s, boost::asio::buffer(data, size), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(s, boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(d, 42, boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(d, 42,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(d, 42, boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:   std::string n = boost::asio::read_until(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::dynamic_buffer(data), '\n');
+boost_1_69_0/libs/asio/doc/reference.qbk:   std::string n = boost::asio::read_until(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::dynamic_buffer(data), "\r\n");
+boost_1_69_0/libs/asio/doc/reference.qbk:   std::string n = boost::asio::read_until(s,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::dynamic_buffer(data), boost::regex("\r\n"));
+boost_1_69_0/libs/asio/doc/reference.qbk:   typedef boost::asio::buffers_iterator<
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::const_buffers_1> iterator;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, data, match_whitespace);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, data, match_char('a'));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, b, '\n');
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, b, "\r\n");
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, b, boost::regex("\r\n"));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:   typedef boost::asio::buffers_iterator<
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::streambuf::const_buffers_type> iterator;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, b, match_whitespace);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::read_until(s, b, match_char('a'));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::basic_streambuf< Allocator > & b,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   serial_port.async_read_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   serial_port.async_write_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the serial port. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the serial port. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   serial_port.read_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   serial_port.write_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/doc/reference.qbk:* The signal set was cancelled, in which case the handler is passed the error code `boost::asio::error::operation_aborted`.
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous wait operations against the signal set. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function forces the completion of any pending asynchronous wait operations against the signal set. The handler for each cancelled operation will be invoked with the `boost::asio::error::operation_aborted` error code.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::signal_set signals(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::signal_set signals(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::signal_set signals(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::broadcast option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::bytes_readable command(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::debug option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::udp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::do_not_route option;
+boost_1_69_0/libs/asio/doc/reference.qbk:Implements a custom socket option that determines whether or not an accept operation is permitted to fail with `boost::asio::error::connection_aborted`. By default the option is false.
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::enable_connection_aborted option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::keep_alive option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option(true, 30);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::linger option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::out_of_band_inline option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::receive_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option(true);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::acceptor acceptor(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::reuse_address option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option(8192);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_buffer_size option;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option(1024);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ip::tcp::socket socket(io_context); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::socket_base::send_low_watermark option;
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::io_context::strand & s,
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::spawn(my_strand, do_echo);
+boost_1_69_0/libs/asio/doc/reference.qbk:   void do_echo(boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/doc/reference.qbk:             boost::asio::buffer(data), yield);
+boost_1_69_0/libs/asio/doc/reference.qbk:         boost::asio::async_write(my_socket,
+boost_1_69_0/libs/asio/doc/reference.qbk:             boost::asio::buffer(data, length), yield);
+boost_1_69_0/libs/asio/doc/reference.qbk:      const boost::asio::io_context::strand & s,
+boost_1_69_0/libs/asio/doc/reference.qbk:  static const boost::system::error_category & stream_category = boost::asio::ssl::error::get_stream_category();
+boost_1_69_0/libs/asio/doc/reference.qbk:   using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/reference.qbk:   namespace ssl = boost::asio::ssl;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::connect(sock.lowest_layer(), resolver.resolve(query));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ssl::context ctx(boost::asio::ssl::context::sslv23);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ssl::stream<asio:ip::tcp::socket> sock(io_context, ctx);
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::ssl::stream<asio:ip::tcp::socket> sock(io_context, ctx);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:     if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/doc/reference.qbk:* The `boost::asio::basic_waitable_timer::expires_after()` function cancels any pending asynchronous waits, and returns the number of asynchronous waits that were cancelled. If it returns 0 then you were too late and the wait handler has already been executed, or will soon be executed. If it returns 1 then the wait handler was successfully cancelled.
+boost_1_69_0/libs/asio/doc/reference.qbk:* If a wait handler is cancelled, the boost::system::error\_code passed to it contains the value `boost::asio::error::operation_aborted`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::streambuf::mutable_buffers_type bufs = b.prepare(512);
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`].]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::invalid_service_owner][Thrown if the service's owning [link boost_asio.reference.execution_context `execution_context`] is not the [link boost_asio.reference.execution_context `execution_context`] object specified by the `e` parameter. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`]. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::steady_timer timer(io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:     if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/doc/reference.qbk:* The `boost::asio::basic_waitable_timer::expires_after()` function cancels any pending asynchronous waits, and returns the number of asynchronous waits that were cancelled. If it returns 0 then you were too late and the wait handler has already been executed, or will soon be executed. If it returns 1 then the wait handler was successfully cancelled.
+boost_1_69_0/libs/asio/doc/reference.qbk:* If a wait handler is cancelled, the boost::system::error\_code passed to it contains the value `boost::asio::error::operation_aborted`. 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::thread_pool pool(4);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::post(pool, my_task);
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::post(pool,
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`].]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::invalid_service_owner][Thrown if the service's owning [link boost_asio.reference.execution_context `execution_context`] is not the [link boost_asio.reference.execution_context `execution_context`] object specified by the `e` parameter. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::asio::service_already_exists][Thrown if a service of the given type is already present in the [link boost_asio.reference.execution_context `execution_context`]. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   std::size_t n = boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       sock, boost::asio::buffer(buf),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   std::size_t n = boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       sock, boost::asio::buffer(buf),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(64), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:   std::size_t n = boost::asio::read(
+boost_1_69_0/libs/asio/doc/reference.qbk:       sock, boost::asio::buffer(buf),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_exactly(64), ec);
+boost_1_69_0/libs/asio/doc/reference.qbk:The [link boost_asio.reference.use_future_t `use_future_t`] class is used to indicate that an asynchronous operation should return a std::future object. A [link boost_asio.reference.use_future_t `use_future_t`] object may be passed as a handler to an asynchronous operation, typically using the special value `boost::asio::use_future`. For example:
+boost_1_69_0/libs/asio/doc/reference.qbk:     = my_socket.async_read_some(my_buffer, boost::asio::use_future); 
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`. ]]
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.async_read_some_at(42, boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.async_write_some_at(42, boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.read_some_at(42, boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.write_some_at(42, boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.async_read_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:Regardless of whether the asynchronous operation completes immediately or not, the handler will not be invoked from within this function. Invocation of the handler will be performed in a manner equivalent to using `boost::asio::io_context::post()`.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.async_write_some(boost::asio::buffer(data, size), handler);
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function causes all outstanding asynchronous read or write operations to finish immediately, and the handlers for cancelled operations will be passed the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:This function is used to close the handle. Any asynchronous read or write operations will be cancelled immediately, and will complete with the `boost::asio::error::operation_aborted` error.
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_context();
+boost_1_69_0/libs/asio/doc/reference.qbk:  boost::asio::io_context & get_io_service();
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.read_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context);
+boost_1_69_0/libs/asio/doc/reference.qbk:      boost::asio::io_context & io_context,
+boost_1_69_0/libs/asio/doc/reference.qbk:[[boost::system::system_error][Thrown on failure. An error code of `boost::asio::error::eof` indicates that the connection was closed by the peer.]]
+boost_1_69_0/libs/asio/doc/reference.qbk:   handle.write_some(boost::asio::buffer(data, size));
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(s, boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(s, boost::asio::buffer(data, size), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(s, boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(d, 42, boost::asio::buffer(data, size)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(d, 42,
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::buffer(data, size), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(d, 42, boost::asio::buffer(data, size),
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_at_least(32)); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all()); 
+boost_1_69_0/libs/asio/doc/reference.qbk:   boost::asio::write_at(
+boost_1_69_0/libs/asio/doc/reference.qbk:       boost::asio::transfer_all(), ec); 
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:is_error_code_enum_lt__addrinfo_errors__gt_ boost::system::is_error_code_enum< boost::asio::error::addrinfo_errors >]
+boost_1_69_0/libs/asio/doc/reference.qbk:  struct boost::system::is_error_code_enum< boost::asio::error::addrinfo_errors >
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:value boost::system::is_error_code_enum< boost::asio::error::addrinfo_errors >::value]
+boost_1_69_0/libs/asio/doc/reference.qbk:[indexterm2 boost_asio.indexterm.is_error_code_enum_lt__addrinfo_errors__gt_.value..value..boost::system::is_error_code_enum< boost::asio::error::addrinfo_errors >] 
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:is_error_code_enum_lt__basic_errors__gt_ boost::system::is_error_code_enum< boost::asio::error::basic_errors >]
+boost_1_69_0/libs/asio/doc/reference.qbk:  struct boost::system::is_error_code_enum< boost::asio::error::basic_errors >
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:value boost::system::is_error_code_enum< boost::asio::error::basic_errors >::value]
+boost_1_69_0/libs/asio/doc/reference.qbk:[indexterm2 boost_asio.indexterm.is_error_code_enum_lt__basic_errors__gt_.value..value..boost::system::is_error_code_enum< boost::asio::error::basic_errors >] 
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:is_error_code_enum_lt__misc_errors__gt_ boost::system::is_error_code_enum< boost::asio::error::misc_errors >]
+boost_1_69_0/libs/asio/doc/reference.qbk:  struct boost::system::is_error_code_enum< boost::asio::error::misc_errors >
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:value boost::system::is_error_code_enum< boost::asio::error::misc_errors >::value]
+boost_1_69_0/libs/asio/doc/reference.qbk:[indexterm2 boost_asio.indexterm.is_error_code_enum_lt__misc_errors__gt_.value..value..boost::system::is_error_code_enum< boost::asio::error::misc_errors >] 
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:is_error_code_enum_lt__netdb_errors__gt_ boost::system::is_error_code_enum< boost::asio::error::netdb_errors >]
+boost_1_69_0/libs/asio/doc/reference.qbk:  struct boost::system::is_error_code_enum< boost::asio::error::netdb_errors >
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:value boost::system::is_error_code_enum< boost::asio::error::netdb_errors >::value]
+boost_1_69_0/libs/asio/doc/reference.qbk:[indexterm2 boost_asio.indexterm.is_error_code_enum_lt__netdb_errors__gt_.value..value..boost::system::is_error_code_enum< boost::asio::error::netdb_errors >] 
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:is_error_code_enum_lt__ssl_errors__gt_ boost::system::is_error_code_enum< boost::asio::error::ssl_errors >]
+boost_1_69_0/libs/asio/doc/reference.qbk:  struct boost::system::is_error_code_enum< boost::asio::error::ssl_errors >
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:value boost::system::is_error_code_enum< boost::asio::error::ssl_errors >::value]
+boost_1_69_0/libs/asio/doc/reference.qbk:[indexterm2 boost_asio.indexterm.is_error_code_enum_lt__ssl_errors__gt_.value..value..boost::system::is_error_code_enum< boost::asio::error::ssl_errors >] 
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:is_error_code_enum_lt__boost__asio__ssl__error__stream_errors__gt_ boost::system::is_error_code_enum< boost::asio::ssl::error::stream_errors >]
+boost_1_69_0/libs/asio/doc/reference.qbk:  struct boost::system::is_error_code_enum< boost::asio::ssl::error::stream_errors >
+boost_1_69_0/libs/asio/doc/reference.qbk:[section:value boost::system::is_error_code_enum< boost::asio::ssl::error::stream_errors >::value]
+boost_1_69_0/libs/asio/doc/reference.qbk:[indexterm2 boost_asio.indexterm.is_error_code_enum_lt__boost__asio__ssl__error__stream_errors__gt_.value..value..boost::system::is_error_code_enum< boost::asio::ssl::error::stream_errors >] 
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:      boost::asio::ip::tcp::resolver::results_type results)
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:        boost::asio::ip::tcp::resolver::results_type results)
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:        boost::asio::ip::tcp::resolver::results_type results)
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:      boost::asio::ip::tcp::resolver::results_type results)
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:      boost::asio::ip::tcp::resolver::results_type results)
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/ResolveHandler.qbk:        boost::asio::placeholders::results));
+boost_1_69_0/libs/asio/doc/requirements/ConstBufferSequence.qbk:    [`boost::asio::buffer_sequence_begin(x)`\n
+boost_1_69_0/libs/asio/doc/requirements/ConstBufferSequence.qbk:     `boost::asio::buffer_sequence_end(x)`]
+boost_1_69_0/libs/asio/doc/requirements/ConstBufferSequence.qbk:         boost::asio::buffer_sequence_begin(x),
+boost_1_69_0/libs/asio/doc/requirements/ConstBufferSequence.qbk:         boost::asio::buffer_sequence_end(x),
+boost_1_69_0/libs/asio/doc/requirements/ConstBufferSequence.qbk:         boost::asio::buffer_sequence_begin(u),
+boost_1_69_0/libs/asio/doc/requirements/ConstBufferSequence.qbk:         boost::asio::buffer_sequence_end(u),
+boost_1_69_0/libs/asio/doc/requirements/SignalHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/SignalHandler.qbk:        boost::asio::placeholders::signal_number));
+boost_1_69_0/libs/asio/doc/requirements/ReadHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/ReadHandler.qbk:        boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/requirements/WriteHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/WriteHandler.qbk:        boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/requirements/MoveAcceptHandler.qbk:      const boost::system::error_code& ec, boost::asio::ip::tcp::socket s)
+boost_1_69_0/libs/asio/doc/requirements/MoveAcceptHandler.qbk:        const boost::system::error_code& ec, boost::asio::ip::tcp::socket s)
+boost_1_69_0/libs/asio/doc/requirements/MoveAcceptHandler.qbk:      [](const boost::system::error_code& ec, boost::asio::ip::tcp::socket s)
+boost_1_69_0/libs/asio/doc/requirements/MoveAcceptHandler.qbk:      const boost::system::error_code& ec, boost::asio::ip::tcp::socket socket)
+boost_1_69_0/libs/asio/doc/requirements/MoveAcceptHandler.qbk:  boost::asio::async_accept(...,
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:      const boost::asio::ip::tcp::endpoint& endpoint)
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:        const boost::asio::ip::tcp::endpoint& endpoint)
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:  boost::asio::async_connect(...,
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:        const boost::asio::ip::tcp::endpoint& endpoint)
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:      const boost::asio::ip::tcp::endpoint& endpoint)
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:  boost::asio::async_connect(...,
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:      const boost::asio::ip::tcp::endpoint& endpoint)
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:  boost::asio::async_connect(...,
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/RangeConnectHandler.qbk:        boost::asio::placeholders::endpoint));
+boost_1_69_0/libs/asio/doc/requirements/ShutdownHandler.qbk:        this, boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/requirements/BufferedHandshakeHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/BufferedHandshakeHandler.qbk:        boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/requirements/Handler.qbk:      using boost::asio::asio_handler_allocate;
+boost_1_69_0/libs/asio/doc/requirements/Handler.qbk:      lookup. The function `boost::asio::asio_handler_allocate()` serves as a
+boost_1_69_0/libs/asio/doc/requirements/Handler.qbk:      using boost::asio::asio_handler_deallocate;
+boost_1_69_0/libs/asio/doc/requirements/Handler.qbk:      lookup. The function `boost::asio::asio_handler_deallocate()` serves as a
+boost_1_69_0/libs/asio/doc/requirements/Handler.qbk:      using boost::asio::asio_handler_invoke;
+boost_1_69_0/libs/asio/doc/requirements/Handler.qbk:      lookup. The function `boost::asio::asio_handler_invoke()` serves as a
+boost_1_69_0/libs/asio/doc/requirements/HandshakeHandler.qbk:        this, boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/requirements/AcceptHandler.qbk:        this, boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:      boost::asio::ip::tcp::resolver::iterator iterator)
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:  boost::asio::async_connect(...,
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:        boost::asio::ip::tcp::resolver::iterator iterator)
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:      boost::asio::ip::tcp::resolver::iterator iterator)
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:  boost::asio::async_connect(...,
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:      boost::asio::ip::tcp::resolver::iterator iterator)
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:  boost::asio::async_connect(...,
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:        this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/requirements/IteratorConnectHandler.qbk:        boost::asio::placeholders::iterator));
+boost_1_69_0/libs/asio/doc/requirements/ConnectHandler.qbk:        this, boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/requirements/WaitHandler.qbk:        this, boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/requirements/MutableBufferSequence.qbk:    [`boost::asio::buffer_sequence_begin(x)`\n
+boost_1_69_0/libs/asio/doc/requirements/MutableBufferSequence.qbk:     `boost::asio::buffer_sequence_end(x)`]
+boost_1_69_0/libs/asio/doc/requirements/MutableBufferSequence.qbk:         boost::asio::buffer_sequence_begin(x),
+boost_1_69_0/libs/asio/doc/requirements/MutableBufferSequence.qbk:         boost::asio::buffer_sequence_end(x),
+boost_1_69_0/libs/asio/doc/requirements/MutableBufferSequence.qbk:         boost::asio::buffer_sequence_begin(u),
+boost_1_69_0/libs/asio/doc/requirements/MutableBufferSequence.qbk:         boost::asio::buffer_sequence_end(u),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:Next we declare an object of type boost::asio::steady\_timer. The core asio classes that provide I/O functionality (or as in this case timer functionality) always take a reference to an io\_context as their first constructor argument. The second argument to the constructor sets the timer to expire 5 seconds from now.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::steady_timer* t, int* count)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    t->expires_at(t->expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:In this example, the boost::asio::placeholders::error argument to boost::bind() is a named placeholder for the error object passed to the handler. When initiating the asynchronous operation, and if using boost::bind(), you must specify only the arguments that match the handler's parameter list. In tutorial Timer.4 you will see that this placeholder may be elided if the parameter is not needed by the callback handler.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error, t, count));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::placeholders::error, &t, &count));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::steady_timer* t, int* count)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    t->expires_at(t->expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error, t, count));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::placeholders::error, &t, &count));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  printer(boost::asio::io_context& io)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    : timer_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:You will note that the boost::asio::placeholders::error placeholder is not specified here, as the `print` member function does not accept an error object as a parameter.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer_.expires_at(timer_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  printer(boost::asio::io_context& io)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    : timer_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer_.expires_at(timer_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:In addition to initialising a pair of boost::asio::steady\_timer members, the constructor initialises the `strand_` member, an object of type 
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  printer(boost::asio::io_context& io)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer1_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer2_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:[link boost_asio.reference.io_context__strand io_context::strand] object. The boost::asio::io\_context::strand::bind\_executor() function returns a new handler that automatically dispatches its contained handler through the 
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    timer1_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    timer2_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer1_.expires_at(timer1_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer1_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer2_.expires_at(timer2_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer2_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context::strand strand_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer timer1_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer timer2_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::thread t(boost::bind(&boost::asio::io_context::run, &io));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  printer(boost::asio::io_context& io)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer1_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer2_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    timer1_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    timer2_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer1_.expires_at(timer1_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer1_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer2_.expires_at(timer2_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      timer2_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context::strand strand_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer timer1_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::steady_timer timer2_;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::io_context io;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::thread t(boost::bind(&boost::asio::io_context::run, &io));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:Now we create and connect the socket. The list of endpoints obtained above may contain both IPv4 and IPv6 endpoints, so we need to try each of them until we find one that works. This keeps the client program independent of a specific IP version. The boost::asio::connect() function does this for us automatically.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:We use a `boost::array` to hold the received data. The boost::asio::buffer() function automatically determines the size of the array to help prevent buffer overruns. Instead of a `boost::array`, we could have used a `char []` or `std::vector`.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:When the server closes the connection, the [link boost_asio.reference.basic_stream_socket.read_some ip::tcp::socket::read_some()] function will exit with the boost::asio::error::eof error, which is how we know to exit the loop.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      size_t len = socket.read_some(boost::asio::buffer(buf), error);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      if (error == boost::asio::error::eof)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      boost::asio::write(socket, boost::asio::buffer(message), ignored_error);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      boost::asio::write(socket, boost::asio::buffer(message), ignored_error);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:In the function `start()`, we call boost::asio::async\_write() to serve the data to the client. Note that we are using boost::asio::async\_write(), rather than [link boost_asio.reference.basic_stream_socket.async_write_some ip::tcp::socket::async_write_some()], to ensure that the entire block of data is sent.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:When initiating the asynchronous operation, and if using boost::bind(), you must specify only the arguments that match the handler's parameter list. In this program, both of the argument placeholders (boost::asio::placeholders::error and boost::asio::placeholders::bytes\_transferred) could potentially have been removed, since they are not being used in `handle_write()`.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:The boost::asio::async\_write() call used to initiate the call can then be changed to just:
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    socket.send_to(boost::asio::buffer(send_buf), receiver_endpoint);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    socket.send_to(boost::asio::buffer(send_buf), receiver_endpoint);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::buffer(recv_buf), sender_endpoint);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      socket.receive_from(boost::asio::buffer(recv_buf), remote_endpoint);
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      socket.send_to(boost::asio::buffer(message),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  udp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:When initiating the asynchronous operation, and if using boost::bind(), you must specify only the arguments that match the handler's parameter list. In this program, both of the argument placeholders (boost::asio::placeholders::error and boost::asio::placeholders::bytes\_transferred) could potentially have been removed.
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  udp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  udp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  tcp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``  udp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+boost_1_69_0/libs/asio/doc/tutorial.qbk:  ``''''''``    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:  boost::asio::spawn(my_strand, do_echo);
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:  void do_echo(boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:            boost::asio::buffer(data), yield);
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:        boost::asio::async_write(my_socket,
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:            boost::asio::buffer(data, length), yield);
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:  void coroutine(boost::asio::yield_context yield);
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:      boost::asio::buffer(data), yield);
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:      boost::asio::buffer(data), yield[ec]);
+boost_1_69_0/libs/asio/doc/overview/spawn.qbk:  void coroutine(boost::asio::basic_yield_context<Handler> yield);
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:  boost::asio::experimental::co_spawn(executor,
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:      boost::asio::experimental::detached);
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:  boost::asio::experimental::awaitable<void> echo(tcp::socket socket)
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:    auto token = co_await boost::asio::experimental::this_coro::token();
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:        std::size_t n = co_await socket.async_read_some(boost::asio::buffer(data), token);
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:        co_await async_write(socket, boost::asio::buffer(data, n), token);
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:boost_asio.reference.experimental__awaitable `boost::asio::awaitable<R>`],
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:`boost::asio::experimental::detached`], which is used to explicitly ignore the
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:  auto token = co_await boost::asio::experimental::this_coro::token();
+boost_1_69_0/libs/asio/doc/overview/coroutines_ts.qbk:  std::size_t n = co_await socket.async_read_some(boost::asio::buffer(data), token);
+boost_1_69_0/libs/asio/doc/overview/allocation.qbk:  boost::asio::associated_allocator_t<Handler> a = boost::asio::get_associated_allocator(h);
+boost_1_69_0/libs/asio/doc/overview/allocation.qbk:  } } // namespace boost::asio
+boost_1_69_0/libs/asio/doc/overview/strands.qbk:  `boost::asio::bind_executor()` or otherwise posted/dispatched through the strand
+boost_1_69_0/libs/asio/doc/overview/strands.qbk:  boost::asio::associated_executor_t<Handler> a = boost::asio::get_associated_executor(h);
+boost_1_69_0/libs/asio/doc/overview/strands.qbk:  } } // namespace boost::asio
+boost_1_69_0/libs/asio/doc/overview/strands.qbk:The `boost::asio::bind_executor()` function is a helper to bind a specific executor
+boost_1_69_0/libs/asio/doc/overview/strands.qbk:      boost::asio::bind_executor(my_strand,
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:The class `boost::asio::basic_streambuf` is derived from `std::basic_streambuf` to
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:  boost::asio::streambuf sb;
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:  std::size_t n = boost::asio::read_until(sock, sb, '\n');
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:  boost::asio::streambuf::const_buffers_type bufs = sb.data();
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:      boost::asio::buffers_begin(bufs),
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:      boost::asio::buffers_begin(bufs) + n);
+boost_1_69_0/libs/asio/doc/overview/buffers.qbk:   boost::asio::async_write(sock, boost::asio::buffer(msg), my_handler);
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::generic::stream_protocol::socket my_socket(my_io_context);
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  my_socket.open(boost::asio::generic::stream_protocol(AF_INET, IPPROTO_TCP));
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:`boost::asio::generic::basic_endpoint`], is included to support these protocol
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::ip::tcp::endpoint my_endpoint1 = ...;
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::generic::stream_protocol::endpoint my_endpoint2(my_endpoint1);
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::generic::stream_protocol::socket my_socket(my_io_context);
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::ip::tcp::endpoint my_endpoint = ...;
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::ip::tcp::socket my_socket1(my_io_context);
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::generic::stream_protocol::socket my_socket2(std::move(my_socket1));
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:supported because the protocol `boost::asio::ip::tcp` is convertible to
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:`boost::asio::generic::stream_protocol`:
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::ip::tcp::acceptor my_acceptor(my_io_context);
+boost_1_69_0/libs/asio/doc/overview/other_protocols.qbk:  boost::asio::generic::stream_protocol::socket my_socket(my_io_context);
+boost_1_69_0/libs/asio/doc/overview/protocols.qbk:  boost::asio::connect(socket, resolver.resolve(query));
+boost_1_69_0/libs/asio/doc/overview/protocols.qbk:  boost::asio::async_connect(socket_, iter,
+boost_1_69_0/libs/asio/doc/overview/protocols.qbk:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/doc/overview/signals.qbk:  boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/doc/overview/ssl.qbk:  using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/doc/overview/ssl.qbk:  namespace ssl = boost::asio::ssl;
+boost_1_69_0/libs/asio/doc/overview/ssl.qbk:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/overview/ssl.qbk:  boost::asio::connect(sock.lowest_layer(), resolver.resolve(query));
+boost_1_69_0/libs/asio/doc/overview/basics.qbk:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/doc/overview/basics.qbk:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/doc/overview/cpp2011.qbk:      socket->async_read_some(boost::asio::buffer(*buffer), std::move(*this));
+boost_1_69_0/libs/asio/doc/overview/cpp2011.qbk:The `boost::asio::use_future` special value provides first-class support for returning a
+boost_1_69_0/libs/asio/doc/overview/cpp2011.qbk:To use `boost::asio::use_future`, pass it to an asynchronous operation instead of
+boost_1_69_0/libs/asio/doc/overview/cpp2011.qbk:    my_socket.async_read_some(my_buffer, boost::asio::use_future);
+boost_1_69_0/libs/asio/doc/overview/posix.qbk:`boost::asio::null_buffers`, are not portably supported.
+boost_1_69_0/libs/asio/doc/overview/posix.qbk:  io_context_.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/doc/overview/posix.qbk:    io_context_.notify_fork(boost::asio::io_context::fork_child);
+boost_1_69_0/libs/asio/doc/overview/posix.qbk:    io_context_.notify_fork(boost::asio::io_context::fork_parent);
+boost_1_69_0/libs/asio/doc/overview/coroutine.qbk:  struct session : boost::asio::coroutine
+boost_1_69_0/libs/asio/doc/overview/coroutine.qbk:          yield socket_->async_read_some(boost::asio::buffer(*buffer_), *this);
+boost_1_69_0/libs/asio/doc/overview/coroutine.qbk:          yield boost::asio::async_write(*socket_, boost::asio::buffer(*buffer_, n), *this);
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:      boost::asio::async_read_until(socket_, data_, "\r\n",
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:    boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:    boost::asio::streambuf data_;
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:  typedef boost::asio::buffers_iterator<
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:      boost::asio::streambuf::const_buffers_type> iterator;
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:  boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:  boost::asio::read_until(s, b, match_whitespace);
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:  } } // namespace boost::asio
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:  boost::asio::streambuf b;
+boost_1_69_0/libs/asio/doc/overview/line_based.qbk:  boost::asio::read_until(s, b, match_char('a'));
+boost_1_69_0/libs/asio/doc/examples.qbk:Example of using the boost::asio::spawn() function, a wrapper around the
+boost_1_69_0/libs/asio/doc/examples.qbk:Example of using the boost::asio::spawn() function, a wrapper around the
+boost_1_69_0/libs/asio/doc/using.qbk:    boost::asio::ip::tcp::iostream s("www.boost.org", "http");
+boost_1_69_0/libs/asio/doc/reference.xsl:    <xsl:when test="contains($name, 'boost::asio::error::')">
+boost_1_69_0/libs/asio/doc/reference.xsl:         select="concat(substring-before($name, 'boost::asio::error::'), substring-after($name, 'boost::asio::error::'))"/>
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:using boost::asio::experimental::co_spawn;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:using boost::asio::experimental::detached;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:namespace this_coro = boost::asio::experimental::this_coro;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:  using awaitable = boost::asio::experimental::awaitable<
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:    T, boost::asio::io_context::executor_type>;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:   size_t n = co_await s.async_read_some(boost::asio::buffer(p1, 1024), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:     auto write_result = boost::asio::async_write(s, boost::asio::buffer(p2, n), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:     n = co_await s.async_read_some(boost::asio::buffer(p1, 1024), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:    boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/double_buffered_echo_server.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:using boost::asio::experimental::awaitable;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:using boost::asio::experimental::co_spawn;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:using boost::asio::experimental::detached;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:using boost::asio::experimental::redirect_error;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:namespace this_coro = boost::asio::experimental::this_coro;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:        std::size_t n = co_await boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:            boost::asio::dynamic_buffer(read_msg, 1024), "\n", token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:          co_await boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:              boost::asio::buffer(write_msgs_.front()), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:    boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/chat_server.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:using boost::asio::experimental::co_spawn;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:using boost::asio::experimental::detached;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:namespace this_coro = boost::asio::experimental::this_coro;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:  using awaitable = boost::asio::experimental::awaitable<
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:    T, boost::asio::io_context::executor_type>;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:      std::size_t n = co_await socket.async_read_some(boost::asio::buffer(data), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:      co_await async_write(socket, boost::asio::buffer(data, n), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:    boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/echo_server.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:using boost::asio::experimental::awaitable;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:using boost::asio::experimental::co_spawn;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:using boost::asio::experimental::detached;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:namespace this_coro = boost::asio::experimental::this_coro;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:    co_await boost::asio::async_write(s, boost::asio::buffer("hello\r\n", 7), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:    boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/range_based_for.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:using boost::asio::experimental::co_spawn;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:using boost::asio::experimental::detached;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:namespace this_coro = boost::asio::experimental::this_coro;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:  using awaitable = boost::asio::experimental::awaitable<
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:    T, boost::asio::io_context::executor_type>;
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:  std::size_t n = co_await socket.async_read_some(boost::asio::buffer(data), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:  co_await async_write(socket, boost::asio::buffer(data, n), token);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:    boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/example/cpp17/coroutines_ts/refactored_echo_server.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:    boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:        boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:    boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:        boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:    boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:        boost::asio::buffer(write_msgs_.front().data(),
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:  chat_server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:  chat_client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::post(io_context_, [this]() { socket_.close(); });
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::async_connect(socket_, endpoints,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:        boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:        boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:        boost::asio::buffer(write_msgs_.front().data(),
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp11/chat/chat_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:void get_daytime(boost::asio::io_context& io_context, const char* hostname)
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:          boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:      socket.async_send_to(boost::asio::buffer(send_buf),
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:          boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:          boost::asio::buffer(recv_buf),
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:          boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/futures/daytime_client.cpp:    auto work = boost::asio::make_work_guard(io_context);
+boost_1_69_0/libs/asio/example/cpp11/local/stream_server.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp11/local/stream_server.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp11/local/stream_server.cpp:    boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp11/local/stream_server.cpp:        boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp11/local/stream_server.cpp:  server(boost::asio::io_context& io_context, const std::string& file)
+boost_1_69_0/libs/asio/example/cpp11/local/stream_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/local/stream_client.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp11/local/stream_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/local/stream_client.cpp:    boost::asio::write(s, boost::asio::buffer(request, request_length));
+boost_1_69_0/libs/asio/example/cpp11/local/stream_client.cpp:    size_t reply_length = boost::asio::read(s,
+boost_1_69_0/libs/asio/example/cpp11/local/stream_client.cpp:        boost::asio::buffer(reply, request_length));
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, size),
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:    boost::asio::local::connect_pair(socket, filter_socket);
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:      boost::asio::write(socket, boost::asio::buffer(request));
+boost_1_69_0/libs/asio/example/cpp11/local/connect_pair.cpp:      boost::asio::read(socket, boost::asio::buffer(reply));
+boost_1_69_0/libs/asio/example/cpp11/local/iostream_client.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  // In this example, when the completion token is boost::asio::yield_context
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  // completion token is boost::asio::use_future it would be std::future<void>.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  -> typename boost::asio::async_result<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  // The boost::asio::async_completion object takes the completion token and
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  auto executor = boost::asio::get_associated_executor(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  // the boost::asio::bind_executor function.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  boost::asio::async_write(socket,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:      boost::asio::buffer(message, std::strlen(message)),
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:      boost::asio::bind_executor(executor,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_2.cpp:      socket, "Testing future\r\n", boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:  // when the completion token is boost::asio::yield_context (used for stackful
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:  // token is boost::asio::use_future it would be std::future<std::size_t>.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:  -> typename boost::asio::async_result<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:  return boost::asio::async_write(socket,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:      boost::asio::buffer(message, std::strlen(message)),
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_1.cpp:      socket, "Testing future\r\n", boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  // In this example, when the completion token is boost::asio::yield_context
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  // completion token is boost::asio::use_future it would be std::future<void>.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  -> typename boost::asio::async_result<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:    typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:    std::unique_ptr<boost::asio::steady_timer> delay_timer_;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:    boost::asio::executor_work_guard<tcp::socket::executor_type> io_work_;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:          boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:              boost::asio::buffer(*encoded_message_), std::move(*this));
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:    using executor_type = boost::asio::associated_executor_t<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:      return boost::asio::get_associated_executor(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:    using allocator_type = boost::asio::associated_allocator_t<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:      return boost::asio::get_associated_allocator(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  // The boost::asio::async_completion object takes the completion token and
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  std::unique_ptr<boost::asio::steady_timer> delay_timer(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:      new boost::asio::steady_timer(socket.get_executor().context()));
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:      boost::asio::make_work_guard(socket.get_executor()),
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_5.cpp:      socket, "Testing future\r\n", 5, boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  // In this example, when the completion token is boost::asio::yield_context
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  // completion token is boost::asio::use_future it would be std::future<void>.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  -> typename boost::asio::async_result<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  // The boost::asio::async_completion object takes the completion token and
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  // boost::asio::post operation. The async_write operation is used only for
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  auto executor = boost::asio::get_associated_executor(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  // boost::asio::bind_executor function.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:    boost::asio::post(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:        boost::asio::bind_executor(executor,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:            boost::asio::error::invalid_argument)));
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:    boost::asio::async_write(socket,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:        boost::asio::buffer(message, length),
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:        boost::asio::bind_executor(executor,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_3.cpp:      socket, "", boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  // In this example, when the completion token is boost::asio::yield_context
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  // completion token is boost::asio::use_future it would be std::future<void>.
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  -> typename boost::asio::async_result<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:    typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:    using executor_type = boost::asio::associated_executor_t<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:      return boost::asio::get_associated_executor(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:    using allocator_type = boost::asio::associated_allocator_t<
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:      return boost::asio::get_associated_allocator(
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  // The boost::asio::async_completion object takes the completion token and
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  boost::asio::async_write(socket, boost::asio::buffer(*encoded_message),
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/operations/composed_4.cpp:      socket, "Testing future\r\n", boost::asio::use_future);
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_client.cpp:    boost::asio::connect(s, resolver.resolve(argv[1], argv[2]));
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_client.cpp:    boost::asio::write(s, boost::asio::buffer(request, request_length));
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_client.cpp:    size_t reply_length = boost::asio::read(s,
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_client.cpp:        boost::asio::buffer(reply, request_length));
+boost_1_69_0/libs/asio/example/cpp11/echo/async_udp_echo_server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/echo/async_udp_echo_server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp11/echo/async_udp_echo_server.cpp:        boost::asio::buffer(data_, max_length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp11/echo/async_udp_echo_server.cpp:        boost::asio::buffer(data_, length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp11/echo/async_udp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/echo/async_tcp_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/echo/async_tcp_echo_server.cpp:    socket_.async_read_some(boost::asio::buffer(data_, max_length),
+boost_1_69_0/libs/asio/example/cpp11/echo/async_tcp_echo_server.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp11/echo/async_tcp_echo_server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp11/echo/async_tcp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_server.cpp:      size_t length = sock.read_some(boost::asio::buffer(data), error);
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_server.cpp:      if (error == boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_server.cpp:      boost::asio::write(sock, boost::asio::buffer(data, length));
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_server.cpp:void server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_tcp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_client.cpp:    s.send_to(boost::asio::buffer(request, request_length), *endpoints.begin());
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_client.cpp:        boost::asio::buffer(reply, max_length), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_server.cpp:void server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_server.cpp:        boost::asio::buffer(data, max_length), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_server.cpp:    sock.send_to(boost::asio::buffer(data, length), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp11/echo/blocking_udp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.cpp:  boost::asio::ip::tcp::resolver resolver(io_context_);
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.cpp:  boost::asio::ip::tcp::endpoint endpoint =
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.cpp:  acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.cpp:      [this](boost::system::error_code ec, boost::asio::ip::tcp::socket socket)
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:boost::asio::const_buffer to_buffer(reply::status_type status)
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(ok);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(created);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(accepted);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(no_content);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(multiple_choices);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(moved_permanently);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(moved_temporarily);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(not_modified);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(bad_request);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(unauthorized);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(forbidden);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(not_found);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(not_implemented);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(bad_gateway);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(service_unavailable);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:std::vector<boost::asio::const_buffer> reply::to_buffers()
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(h.name));
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::name_value_separator));
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(h.value));
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:  buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.cpp:  buffers.push_back(boost::asio::buffer(content));
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.hpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.hpp:  boost::asio::signal_set signals_;
+boost_1_69_0/libs/asio/example/cpp11/http/server/server.hpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/example/cpp11/http/server/reply.hpp:  std::vector<boost::asio::const_buffer> to_buffers();
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.cpp:connection::connection(boost::asio::ip::tcp::socket socket,
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.cpp:  socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.cpp:        else if (ec != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.cpp:  boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.cpp:          socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both,
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.cpp:        if (ec != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.hpp:  explicit connection(boost::asio::ip::tcp::socket socket,
+boost_1_69_0/libs/asio/example/cpp11/http/server/connection.hpp:  boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:    boost::asio::spawn(strand_,
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:        [this, self](boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:              std::size_t n = socket_.async_read_some(boost::asio::buffer(data), yield);
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:              boost::asio::async_write(socket_, boost::asio::buffer(data, n), yield);
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:    boost::asio::spawn(strand_,
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:        [this, self](boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:  boost::asio::io_context::strand strand_;
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:    boost::asio::spawn(io_context,
+boost_1_69_0/libs/asio/example/cpp11/spawn/echo_server.cpp:        [&](boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/example/cpp11/spawn/parallel_grep.cpp:using boost::asio::dispatch;
+boost_1_69_0/libs/asio/example/cpp11/spawn/parallel_grep.cpp:using boost::asio::spawn;
+boost_1_69_0/libs/asio/example/cpp11/spawn/parallel_grep.cpp:using boost::asio::strand;
+boost_1_69_0/libs/asio/example/cpp11/spawn/parallel_grep.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp11/spawn/parallel_grep.cpp:using boost::asio::yield_context;
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:  sender(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:      const boost::asio::ip::address& multicast_address)
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:        boost::asio::buffer(message_), endpoint_,
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:  boost::asio::ip::udp::endpoint endpoint_;
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:  boost::asio::ip::udp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/multicast/sender.cpp:    sender s(io_context, boost::asio::ip::make_address(argv[1]));
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:  receiver(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:      const boost::asio::ip::address& listen_address,
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:      const boost::asio::ip::address& multicast_address)
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:    boost::asio::ip::udp::endpoint listen_endpoint(
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:    socket_.set_option(boost::asio::ip::udp::socket::reuse_address(true));
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:        boost::asio::ip::multicast::join_group(multicast_address));
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:        boost::asio::buffer(data_), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:  boost::asio::ip::udp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:  boost::asio::ip::udp::endpoint sender_endpoint_;
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:        boost::asio::ip::make_address(argv[1]),
+boost_1_69_0/libs/asio/example/cpp11/multicast/receiver.cpp:        boost::asio::ip::make_address(argv[2]));
+boost_1_69_0/libs/asio/example/cpp11/executors/priority_scheduler.cpp:using boost::asio::dispatch;
+boost_1_69_0/libs/asio/example/cpp11/executors/priority_scheduler.cpp:using boost::asio::execution_context;
+boost_1_69_0/libs/asio/example/cpp11/executors/bank_account_2.cpp:using boost::asio::post;
+boost_1_69_0/libs/asio/example/cpp11/executors/bank_account_2.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp11/executors/bank_account_2.cpp:using boost::asio::use_future;
+boost_1_69_0/libs/asio/example/cpp11/executors/bank_account_1.cpp:using boost::asio::post;
+boost_1_69_0/libs/asio/example/cpp11/executors/bank_account_1.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp11/executors/actor.cpp:using boost::asio::defer;
+boost_1_69_0/libs/asio/example/cpp11/executors/actor.cpp:using boost::asio::executor;
+boost_1_69_0/libs/asio/example/cpp11/executors/actor.cpp:using boost::asio::post;
+boost_1_69_0/libs/asio/example/cpp11/executors/actor.cpp:using boost::asio::strand;
+boost_1_69_0/libs/asio/example/cpp11/executors/actor.cpp:using boost::asio::system_executor;
+boost_1_69_0/libs/asio/example/cpp11/executors/actor.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::execution_context;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::executor_binder;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::get_associated_executor;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::post;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::system_executor;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::use_future;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::use_service;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::bind_executor;
+boost_1_69_0/libs/asio/example/cpp11/executors/pipeline.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp11/executors/fork_join.cpp:using boost::asio::dispatch;
+boost_1_69_0/libs/asio/example/cpp11/executors/fork_join.cpp:using boost::asio::execution_context;
+boost_1_69_0/libs/asio/example/cpp11/executors/fork_join.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp11/iostreams/http_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/iostreams/http_client.cpp:    boost::asio::ip::tcp::iostream s;
+boost_1_69_0/libs/asio/example/cpp11/timers/time_t_timer.cpp:// The boost::asio::basic_waitable_timer template accepts an optional WaitTraits
+boost_1_69_0/libs/asio/example/cpp11/timers/time_t_timer.cpp:typedef boost::asio::basic_waitable_timer<
+boost_1_69_0/libs/asio/example/cpp11/timers/time_t_timer.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/async_tcp_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/async_tcp_echo_server.cpp:    socket_.async_read_some(boost::asio::buffer(data_, max_length),
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/async_tcp_echo_server.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/async_tcp_echo_server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/async_tcp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/custom_tracking.hpp:  static void creation(boost::asio::execution_context& /*ctx*/,
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/custom_tracking.hpp:  static void operation(boost::asio::execution_context& /*ctx*/,
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/custom_tracking.hpp:  static void reactor_registration(boost::asio::execution_context& context,
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/custom_tracking.hpp:  static void reactor_deregistration(boost::asio::execution_context& context,
+boost_1_69_0/libs/asio/example/cpp11/handler_tracking/custom_tracking.hpp:  static void reactor_events(boost::asio::execution_context& context,
+boost_1_69_0/libs/asio/example/cpp11/allocation/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/allocation/server.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp11/allocation/server.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp11/allocation/server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp11/allocation/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:class handler_priority_queue : boost::asio::execution_context
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:  boost::asio::executor_binder<Handler, executor>
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:    return boost::asio::bind_executor(
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:  boost::asio::post(io_context, pri_queue.wrap(0, low_priority_handler()));
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:  tcp::endpoint endpoint(boost::asio::ip::address_v4::loopback(), 0);
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:  boost::asio::steady_timer timer(io_context);
+boost_1_69_0/libs/asio/example/cpp11/invocation/prioritised_handlers.cpp:  timer.expires_at(boost::asio::steady_timer::clock_type::time_point::min());
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:      buffer_(boost::asio::buffer(*data_))
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:  typedef boost::asio::const_buffer value_type;
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:  typedef const boost::asio::const_buffer* const_iterator;
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:  const boost::asio::const_buffer* begin() const { return &buffer_; }
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:  const boost::asio::const_buffer* end() const { return &buffer_ + 1; }
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:  boost::asio::const_buffer buffer_;
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:    boost::asio::async_write(socket_, buffer,
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp11/buffers/reference_counted.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:  udp_daytime_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:            socket_.send_to(boost::asio::buffer(message),
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:    io_context.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:        //   io_context.notify_fork(boost::asio::io_context::fork_parent);
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:        //   io_context.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/example/cpp11/fork/daemon.cpp:    io_context.notify_fork(boost::asio::io_context::fork_child);
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:            io_context_.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:              io_context_.notify_fork(boost::asio::io_context::fork_child);
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:              io_context_.notify_fork(boost::asio::io_context::fork_parent);
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:  boost::asio::signal_set signal_;
+boost_1_69_0/libs/asio/example/cpp11/fork/process_per_connection.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:using boost::asio::steady_timer;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:    boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:        boost::asio::dynamic_buffer(input_buffer_), '\n',
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:    boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:        boost::asio::buffer(output_queue_.front()),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:  udp_broadcaster(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:    socket_.send(boost::asio::buffer(msg), 0, ignored_error);
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:  server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/server.cpp:        boost::asio::ip::make_address(argv[2]), atoi(argv[3]));
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:    boost::asio::io_context& io_context = socket_.get_executor().context();
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:    boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:    boost::asio::async_write(socket, boost::asio::buffer(msg),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:      std::size_t n = boost::asio::async_read_until(socket,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_token_tcp_client.cpp:          boost::asio::dynamic_buffer(input_buffer), '\n',
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_udp_client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_udp_client.cpp:  std::size_t receive(const boost::asio::mutable_buffer& buffer,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_udp_client.cpp:    socket_.async_receive(boost::asio::buffer(buffer),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_udp_client.cpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_udp_client.cpp:        boost::asio::ip::make_address(argv[1]),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_udp_client.cpp:      std::size_t n = c.receive(boost::asio::buffer(data),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:using boost::asio::steady_timer;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:  client(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:    boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:        boost::asio::dynamic_buffer(input_buffer_), '\n',
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:    boost::asio::async_write(socket_, boost::asio::buffer("\n", 1),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/async_tcp_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_tcp_client.cpp:    boost::asio::async_connect(socket_, endpoints,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_tcp_client.cpp:    boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_tcp_client.cpp:        boost::asio::dynamic_buffer(input_buffer_), '\n',
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_tcp_client.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data),
+boost_1_69_0/libs/asio/example/cpp11/timeouts/blocking_tcp_client.cpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:  session(tcp::socket socket, boost::asio::ssl::context& context)
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:    socket_.async_handshake(boost::asio::ssl::stream_base::server, 
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:  boost::asio::ssl::stream<tcp::socket> socket_;
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:      context_(boost::asio::ssl::context::sslv23)
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:        boost::asio::ssl::context::default_workarounds
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:        | boost::asio::ssl::context::no_sslv2
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:        | boost::asio::ssl::context::single_dh_use);
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:    context_.use_private_key_file("server.pem", boost::asio::ssl::context::pem);
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:  boost::asio::ssl::context context_;
+boost_1_69_0/libs/asio/example/cpp11/ssl/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:  client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:      boost::asio::ssl::context& context,
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    socket_.set_verify_mode(boost::asio::ssl::verify_peer);
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:      boost::asio::ssl::verify_context& ctx)
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    boost::asio::async_connect(socket_.lowest_layer(), endpoints,
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    socket_.async_handshake(boost::asio::ssl::stream_base::client,
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:        boost::asio::buffer(request_, request_length),
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:        boost::asio::buffer(reply_, length),
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:  boost::asio::ssl::stream<tcp::socket> socket_;
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/ssl/client.cpp:    boost::asio::ssl::context ctx(boost::asio::ssl::context::sslv23);
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:  request(command_type cmd, const boost::asio::ip::tcp::endpoint& endpoint,
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:    if (endpoint.protocol() != boost::asio::ip::tcp::v4())
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:          boost::asio::error::address_family_not_supported);
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:  std::array<boost::asio::const_buffer, 7> buffers() const
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&version_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&command_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&port_high_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&port_low_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(address_),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(user_id_),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&null_byte_, 1)
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:  boost::asio::ip::address_v4::bytes_type address_;
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:  std::array<boost::asio::mutable_buffer, 5> buffers()
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&null_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&status_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&port_high_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(&port_low_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:        boost::asio::buffer(address_)
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:  boost::asio::ip::tcp::endpoint endpoint() const
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:    boost::asio::ip::address_v4 address(address_);
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:    return boost::asio::ip::tcp::endpoint(address, port);
+boost_1_69_0/libs/asio/example/cpp11/socks4/socks4.hpp:  boost::asio::ip::address_v4::bytes_type address_;
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:    boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:    boost::asio::write(socket, socks_request.buffers());
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:    boost::asio::read(socket, socks_reply.buffers());
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:    boost::asio::write(socket, boost::asio::buffer(request));
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:          boost::asio::buffer(response), error))
+boost_1_69_0/libs/asio/example/cpp11/socks4/sync_client.cpp:    if (error != boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:    if (std::size_t len = socket_.read_some(boost::asio::buffer(data_), ec))
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:      write_buffer_ = boost::asio::buffer(data_, len);
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:          boost::asio::buffer(write_buffer_), ec))
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:      state_ = boost::asio::buffer_size(write_buffer_) > 0 ? writing : reading;
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:  boost::asio::const_buffer write_buffer_;
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:            if (!ec || ec == boost::asio::error::would_block)
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:            if (!ec || ec == boost::asio::error::would_block)
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp11/nonblocking/third_party_lib.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:namespace posix = boost::asio::posix;
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:  posix_chat_client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:    boost::asio::async_connect(socket_, endpoints,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:          boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_read_until(input_, input_buffer_, '\n',
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:          boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::array<boost::asio::const_buffer, 2> buffers = {{
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:        boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:        boost::asio::buffer(eol) }};
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_write(output_, buffers,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:          boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:          boost::asio::buffer(write_msg_.data(), write_msg_.length()),
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:    else if (error == boost::asio::error::not_found)
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:          boost::asio::buffer(write_msg_.data(), write_msg_.length()),
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:      boost::asio::async_read_until(input_, input_buffer_, '\n',
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:  boost::asio::streambuf input_buffer_;
+boost_1_69_0/libs/asio/example/cpp03/chat/posix_chat_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:  chat_session(boost::asio::io_context& io_context, chat_room& room)
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:    boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:        boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:          boost::asio::buffer(write_msgs_.front().data(),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:          boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:          boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:        boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:            boost::asio::buffer(write_msgs_.front().data(),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:              boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:  chat_server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:  chat_client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:    boost::asio::async_connect(socket_, endpoints,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:          boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:          boost::asio::buffer(read_msg_.body(), read_msg_.body_length()),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:          boost::asio::buffer(read_msg_.data(), chat_message::header_length),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:          boost::asio::buffer(write_msgs_.front().data(),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:        boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:            boost::asio::buffer(write_msgs_.front().data(),
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:              boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/chat/chat_client.cpp:    boost::thread t(boost::bind(&boost::asio::io_context::run, &io_context));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:  session(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:          boost::asio::buffer(data_, bytes_transferred),
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:      socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:  server(boost::asio::io_context& io_context, const std::string& file)
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/local/stream_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/local/stream_client.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp03/local/stream_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/local/stream_client.cpp:    boost::asio::write(s, boost::asio::buffer(request, request_length));
+boost_1_69_0/libs/asio/example/cpp03/local/stream_client.cpp:    size_t reply_length = boost::asio::read(s,
+boost_1_69_0/libs/asio/example/cpp03/local/stream_client.cpp:        boost::asio::buffer(reply, request_length));
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:  uppercase_filter(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:          this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:      boost::asio::async_write(socket_, boost::asio::buffer(data_, size),
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:            this, boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:      socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:            this, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:void run(boost::asio::io_context* io_context)
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:    boost::asio::local::connect_pair(socket, filter.socket());
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:      boost::asio::write(socket, boost::asio::buffer(request));
+boost_1_69_0/libs/asio/example/cpp03/local/connect_pair.cpp:      boost::asio::read(socket, boost::asio::buffer(reply));
+boost_1_69_0/libs/asio/example/cpp03/local/iostream_client.cpp:using boost::asio::local::stream_protocol;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_client.cpp:    boost::asio::connect(s, endpoints);
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_client.cpp:    boost::asio::write(s, boost::asio::buffer(request, request_length));
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_client.cpp:    size_t reply_length = boost::asio::read(s,
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_client.cpp:        boost::asio::buffer(reply, request_length));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:        boost::asio::buffer(data_, max_length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:          boost::asio::buffer(data_, bytes_recvd), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:          boost::asio::buffer(data_, max_length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:        boost::asio::buffer(data_, max_length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_udp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:  session(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:    socket_.async_read_some(boost::asio::buffer(data_, max_length),
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:          boost::asio::buffer(data_, bytes_transferred),
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:      socket_.async_read_some(boost::asio::buffer(data_, max_length),
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_server.cpp:      size_t length = sock->read_some(boost::asio::buffer(data), error);
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_server.cpp:      if (error == boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_server.cpp:      boost::asio::write(*sock, boost::asio::buffer(data, length));
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_server.cpp:void server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_tcp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_client.cpp:    s.send_to(boost::asio::buffer(request, request_length), *endpoints.begin());
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_client.cpp:        boost::asio::buffer(reply, max_length), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_server.cpp:void server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_server.cpp:        boost::asio::buffer(data, max_length), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_server.cpp:    sock.send_to(boost::asio::buffer(data, length), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp03/echo/blocking_udp_echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:        boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port))
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:          boost::asio::placeholders::error, new_conn));
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:            boost::asio::placeholders::error, conn));
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:          boost::asio::placeholders::error, new_conn));
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/example/cpp03/serialization/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:  client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:    boost::asio::ip::tcp::resolver resolver(io_context);
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:    boost::asio::ip::tcp::resolver::query query(host, service);
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:    boost::asio::ip::tcp::resolver::iterator endpoint_iterator =
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:    boost::asio::async_connect(connection_.socket(), endpoint_iterator,
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/serialization/client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:  connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:  boost::asio::ip::tcp::socket& socket()
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:      boost::system::error_code error(boost::asio::error::invalid_argument);
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:      boost::asio::post(socket_.get_executor(), boost::bind(handler, error));
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:    std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:    buffers.push_back(boost::asio::buffer(outbound_header_));
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:    buffers.push_back(boost::asio::buffer(outbound_data_));
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:    boost::asio::async_write(socket_, buffers, handler);
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:    boost::asio::async_read(socket_, boost::asio::buffer(inbound_header_),
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:          this, boost::asio::placeholders::error, boost::ref(t),
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:        boost::system::error_code error(boost::asio::error::invalid_argument);
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:      boost::asio::async_read(socket_, boost::asio::buffer(inbound_data_),
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:          boost::asio::placeholders::error, boost::ref(t), handler));
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:        boost::system::error_code error(boost::asio::error::invalid_argument);
+boost_1_69_0/libs/asio/example/cpp03/serialization/connection.hpp:  boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:using boost::asio::windows::overlapped_ptr;
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:using boost::asio::windows::random_access_handle;
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:        boost::asio::error::get_system_category());
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:  static pointer create(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:  connection(boost::asio::io_context& io_context, const std::string& filename)
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:  server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/windows/transmit_file.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.cpp:server::server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.cpp:  boost::asio::ip::tcp::endpoint endpoint =
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.cpp:        yield socket_->async_read_some(boost::asio::buffer(*buffer_), *this);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.cpp:      yield boost::asio::async_write(*socket_, reply_->to_buffers(), *this);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:boost::asio::const_buffer to_buffer(reply::status_type status)
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(ok);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(created);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(accepted);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(no_content);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(multiple_choices);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(moved_permanently);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(moved_temporarily);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(not_modified);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(bad_request);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(unauthorized);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(forbidden);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(not_found);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(not_implemented);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(bad_gateway);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(service_unavailable);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:std::vector<boost::asio::const_buffer> reply::to_buffers()
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    buffers.push_back(boost::asio::buffer(h.name));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::name_value_separator));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    buffers.push_back(boost::asio::buffer(h.value));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:  buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.cpp:  buffers.push_back(boost::asio::buffer(content));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.hpp:class server : boost::asio::coroutine
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.hpp:  explicit server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server4/server.hpp:  typedef boost::asio::ip::tcp tcp;
+boost_1_69_0/libs/asio/example/cpp03/http/server4/main.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/http/server4/main.cpp:    boost::asio::signal_set signals(io_context);
+boost_1_69_0/libs/asio/example/cpp03/http/server4/main.cpp:          &boost::asio::io_context::stop, &io_context));
+boost_1_69_0/libs/asio/example/cpp03/http/server4/reply.hpp:  std::vector<boost::asio::const_buffer> to_buffers();
+boost_1_69_0/libs/asio/example/cpp03/http/server4/request_parser.hpp:class request_parser : boost::asio::coroutine
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.cpp:  boost::asio::ip::tcp::resolver resolver(io_context_);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.cpp:  boost::asio::ip::tcp::endpoint endpoint =
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.cpp:  acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.cpp:          boost::bind(&boost::asio::io_context::run, &io_context_)));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:boost::asio::const_buffer to_buffer(reply::status_type status)
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(ok);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(created);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(accepted);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(no_content);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(multiple_choices);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(moved_permanently);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(moved_temporarily);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(not_modified);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(bad_request);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(unauthorized);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(forbidden);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(not_found);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(not_implemented);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(bad_gateway);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(service_unavailable);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:std::vector<boost::asio::const_buffer> reply::to_buffers()
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    buffers.push_back(boost::asio::buffer(h.name));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::name_value_separator));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    buffers.push_back(boost::asio::buffer(h.value));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:  buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.cpp:  buffers.push_back(boost::asio::buffer(content));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.hpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.hpp:  boost::asio::signal_set signals_;
+boost_1_69_0/libs/asio/example/cpp03/http/server3/server.hpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/example/cpp03/http/server3/reply.hpp:  std::vector<boost::asio::const_buffer> to_buffers();
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:connection::connection(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:boost::asio::ip::tcp::socket& connection::socket()
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:  socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:      boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:          boost::asio::placeholders::bytes_transferred)));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:      boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:          boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:              boost::asio::placeholders::error)));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:      boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:          boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:              boost::asio::placeholders::error)));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:      socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:          boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:              boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:              boost::asio::placeholders::bytes_transferred)));
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.cpp:    socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ignored_ec);
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.hpp:  explicit connection(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.hpp:  boost::asio::ip::tcp::socket& socket();
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.hpp:  boost::asio::io_context::strand strand_;
+boost_1_69_0/libs/asio/example/cpp03/http/server3/connection.hpp:  boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:  client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:          boost::asio::placeholders::results));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:      boost::asio::async_connect(socket_, endpoints,
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:      boost::asio::async_write(socket_, request_,
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:      boost::asio::async_read_until(socket_, response_, "\r\n",
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:      boost::asio::async_read_until(socket_, response_, "\r\n\r\n",
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:      boost::asio::async_read(socket_, response_,
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:          boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:      boost::asio::async_read(socket_, response_,
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:          boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:    else if (err != boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:  boost::asio::streambuf request_;
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:  boost::asio::streambuf response_;
+boost_1_69_0/libs/asio/example/cpp03/http/client/async_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::streambuf request;
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::write(socket, request);
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::streambuf response;
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::read_until(socket, response, "\r\n");
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    boost::asio::read_until(socket, response, "\r\n\r\n");
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    while (boost::asio::read(socket, response,
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:          boost::asio::transfer_at_least(1), error))
+boost_1_69_0/libs/asio/example/cpp03/http/client/sync_client.cpp:    if (error != boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp03/http/server2/server.cpp:  boost::asio::ip::tcp::resolver resolver(acceptor_.get_executor().context());
+boost_1_69_0/libs/asio/example/cpp03/http/server2/server.cpp:  boost::asio::ip::tcp::endpoint endpoint =
+boost_1_69_0/libs/asio/example/cpp03/http/server2/server.cpp:  acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/server.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:boost::asio::const_buffer to_buffer(reply::status_type status)
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(ok);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(created);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(accepted);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(no_content);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(multiple_choices);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(moved_permanently);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(moved_temporarily);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(not_modified);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(bad_request);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(unauthorized);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(forbidden);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(not_found);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(not_implemented);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(bad_gateway);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(service_unavailable);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:std::vector<boost::asio::const_buffer> reply::to_buffers()
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    buffers.push_back(boost::asio::buffer(h.name));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::name_value_separator));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    buffers.push_back(boost::asio::buffer(h.value));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:  buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.cpp:  buffers.push_back(boost::asio::buffer(content));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.hpp:  boost::asio::io_context& get_io_context();
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.hpp:  typedef boost::shared_ptr<boost::asio::io_context> io_context_ptr;
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.hpp:  typedef boost::asio::executor_work_guard<
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.hpp:    boost::asio::io_context::executor_type> io_context_work;
+boost_1_69_0/libs/asio/example/cpp03/http/server2/server.hpp:  boost::asio::signal_set signals_;
+boost_1_69_0/libs/asio/example/cpp03/http/server2/server.hpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.cpp:    io_context_ptr io_context(new boost::asio::io_context);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.cpp:    work_.push_back(boost::asio::make_work_guard(*io_context));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.cpp:          boost::bind(&boost::asio::io_context::run, io_contexts_[i])));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.cpp:boost::asio::io_context& io_context_pool::get_io_context()
+boost_1_69_0/libs/asio/example/cpp03/http/server2/io_context_pool.cpp:  boost::asio::io_context& io_context = *io_contexts_[next_io_context_];
+boost_1_69_0/libs/asio/example/cpp03/http/server2/reply.hpp:  std::vector<boost::asio::const_buffer> to_buffers();
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:connection::connection(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:boost::asio::ip::tcp::socket& connection::socket()
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:  socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:        boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:        boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:      boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:      boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:      socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.cpp:    socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ignored_ec);
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.hpp:  explicit connection(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.hpp:  boost::asio::ip::tcp::socket& socket();
+boost_1_69_0/libs/asio/example/cpp03/http/server2/connection.hpp:  boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.cpp:  boost::asio::ip::tcp::resolver resolver(io_context_);
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.cpp:  boost::asio::ip::tcp::endpoint endpoint =
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.cpp:  acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:boost::asio::const_buffer to_buffer(reply::status_type status)
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(ok);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(created);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(accepted);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(no_content);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(multiple_choices);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(moved_permanently);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(moved_temporarily);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(not_modified);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(bad_request);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(unauthorized);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(forbidden);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(not_found);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(not_implemented);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(bad_gateway);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(service_unavailable);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    return boost::asio::buffer(internal_server_error);
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:std::vector<boost::asio::const_buffer> reply::to_buffers()
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(h.name));
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::name_value_separator));
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(h.value));
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:    buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:  buffers.push_back(boost::asio::buffer(misc_strings::crlf));
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.cpp:  buffers.push_back(boost::asio::buffer(content));
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.hpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.hpp:  boost::asio::signal_set signals_;
+boost_1_69_0/libs/asio/example/cpp03/http/server/server.hpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/example/cpp03/http/server/reply.hpp:  std::vector<boost::asio::const_buffer> to_buffers();
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:connection::connection(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:boost::asio::ip::tcp::socket& connection::socket()
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:  socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:        boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:        boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:      boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:      boost::asio::async_write(socket_, reply_.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:      socket_.async_read_some(boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:  else if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:    socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ignored_ec);
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.cpp:  if (e != boost::asio::error::operation_aborted)
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.hpp:  explicit connection(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.hpp:  boost::asio::ip::tcp::socket& socket();
+boost_1_69_0/libs/asio/example/cpp03/http/server/connection.hpp:  boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:  explicit session(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:    boost::asio::spawn(strand_,
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:    boost::asio::spawn(strand_,
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:  void echo(boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:        timer_.expires_after(boost::asio::chrono::seconds(10));
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:        std::size_t n = socket_.async_read_some(boost::asio::buffer(data), yield);
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:        boost::asio::async_write(socket_, boost::asio::buffer(data, n), yield);
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:  void timeout(boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:      if (timer_.expiry() <= boost::asio::steady_timer::clock_type::now())
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:  boost::asio::io_context::strand strand_;
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:void do_accept(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:    unsigned short port, boost::asio::yield_context yield)
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/spawn/echo_server.cpp:    boost::asio::spawn(io_context,
+boost_1_69_0/libs/asio/example/cpp03/spawn/parallel_grep.cpp:using boost::asio::dispatch;
+boost_1_69_0/libs/asio/example/cpp03/spawn/parallel_grep.cpp:using boost::asio::spawn;
+boost_1_69_0/libs/asio/example/cpp03/spawn/parallel_grep.cpp:using boost::asio::strand;
+boost_1_69_0/libs/asio/example/cpp03/spawn/parallel_grep.cpp:using boost::asio::thread_pool;
+boost_1_69_0/libs/asio/example/cpp03/spawn/parallel_grep.cpp:using boost::asio::yield_context;
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:  sender(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:      const boost::asio::ip::address& multicast_address)
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:        boost::asio::buffer(message_), endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:      timer_.expires_after(boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:          boost::asio::buffer(message_), endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:  boost::asio::ip::udp::endpoint endpoint_;
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:  boost::asio::ip::udp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/multicast/sender.cpp:    sender s(io_context, boost::asio::ip::make_address(argv[1]));
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:  receiver(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:      const boost::asio::ip::address& listen_address,
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:      const boost::asio::ip::address& multicast_address)
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:    boost::asio::ip::udp::endpoint listen_endpoint(
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:    socket_.set_option(boost::asio::ip::udp::socket::reuse_address(true));
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:        boost::asio::ip::multicast::join_group(multicast_address));
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:        boost::asio::buffer(data_, max_length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:          boost::asio::buffer(data_, max_length), sender_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:  boost::asio::ip::udp::socket socket_;
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:  boost::asio::ip::udp::endpoint sender_endpoint_;
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:        boost::asio::ip::make_address(argv[1]),
+boost_1_69_0/libs/asio/example/cpp03/multicast/receiver.cpp:        boost::asio::ip::make_address(argv[2]));
+boost_1_69_0/libs/asio/example/cpp03/icmp/ipv4_header.hpp:  boost::asio::ip::address_v4 source_address() const
+boost_1_69_0/libs/asio/example/cpp03/icmp/ipv4_header.hpp:    boost::asio::ip::address_v4::bytes_type bytes
+boost_1_69_0/libs/asio/example/cpp03/icmp/ipv4_header.hpp:    return boost::asio::ip::address_v4(bytes);
+boost_1_69_0/libs/asio/example/cpp03/icmp/ipv4_header.hpp:  boost::asio::ip::address_v4 destination_address() const
+boost_1_69_0/libs/asio/example/cpp03/icmp/ipv4_header.hpp:    boost::asio::ip::address_v4::bytes_type bytes
+boost_1_69_0/libs/asio/example/cpp03/icmp/ipv4_header.hpp:    return boost::asio::ip::address_v4(bytes);
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:using boost::asio::ip::icmp;
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:using boost::asio::steady_timer;
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:namespace chrono = boost::asio::chrono;
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:  pinger(boost::asio::io_context& io_context, const char* destination)
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:    boost::asio::streambuf request_buffer;
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:  boost::asio::streambuf reply_buffer_;
+boost_1_69_0/libs/asio/example/cpp03/icmp/ping.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/services/basic_logger.hpp:  explicit basic_logger(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/services/basic_logger.hpp:    : service_(boost::asio::use_service<Service>(io_context)),
+boost_1_69_0/libs/asio/example/cpp03/services/basic_logger.hpp:  boost::asio::io_context& get_io_context()
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:    s->async_read_some(boost::asio::buffer(read_buffer),
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:        boost::bind(read_handler, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:          boost::asio::placeholders::bytes_transferred, s));
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:    s->async_read_some(boost::asio::buffer(read_buffer),
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:        boost::bind(read_handler, boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:          boost::asio::placeholders::bytes_transferred, s));
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:    boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/example/cpp03/services/daytime_client.cpp:          boost::asio::placeholders::error, &socket));
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:  : public boost::asio::io_context::service
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:  static boost::asio::io_context::id id;
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:  logger_service(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:    : boost::asio::io_context::service(io_context),
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:      work_(boost::asio::make_work_guard(work_io_context_)),
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:            boost::bind(&boost::asio::io_context::run, &work_io_context_)))
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:    boost::asio::post(work_io_context_, boost::bind(
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:    boost::asio::post(work_io_context_, boost::bind(
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:  boost::asio::io_context work_io_context_;
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:  boost::asio::executor_work_guard<
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.hpp:      boost::asio::io_context::executor_type> work_;
+boost_1_69_0/libs/asio/example/cpp03/services/logger_service.cpp:boost::asio::io_context::id logger_service::id;
+boost_1_69_0/libs/asio/example/cpp03/iostreams/daytime_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/iostreams/daytime_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/iostreams/daytime_server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/iostreams/http_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/iostreams/http_client.cpp:    boost::asio::ip::tcp::iostream s;
+boost_1_69_0/libs/asio/example/cpp03/iostreams/http_client.cpp:    s.expires_after(boost::asio::chrono::seconds(60));
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:  typedef boost::asio::chrono::steady_clock::duration duration;
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:  typedef boost::asio::chrono::time_point<time_t_clock> time_point;
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:    return time_point() + boost::asio::chrono::seconds(std::time(0));
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:// The boost::asio::basic_waitable_timer template accepts an optional WaitTraits
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:    if (d > boost::asio::chrono::seconds(1))
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:      return d - boost::asio::chrono::seconds(1);
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:    else if (d > boost::asio::chrono::seconds(0))
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:      return boost::asio::chrono::milliseconds(10);
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:      return boost::asio::chrono::seconds(0);
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:typedef boost::asio::basic_waitable_timer<
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:    timer.expires_after(boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/example/cpp03/timers/time_t_timer.cpp:    timer.expires_after(boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:  session(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:            boost::asio::placeholders::bytes_transferred)));
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:          boost::asio::buffer(data_, bytes_transferred),
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:              boost::asio::placeholders::error)));
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:      socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:              boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:              boost::asio::placeholders::bytes_transferred)));
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/allocation/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:class handler_priority_queue : public boost::asio::execution_context
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:  boost::asio::executor_binder<Handler, executor>
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:    return boost::asio::bind_executor(executor(*this, priority), handler);
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:  boost::asio::post(io_context, pri_queue.wrap(0, low_priority_handler));
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:  tcp::endpoint endpoint(boost::asio::ip::address_v4::loopback(), 0);
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:  boost::asio::steady_timer timer(io_context);
+boost_1_69_0/libs/asio/example/cpp03/invocation/prioritised_handlers.cpp:  timer.expires_at(boost::asio::steady_timer::time_point::min());
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:      buffer_(boost::asio::buffer(*data_))
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  typedef boost::asio::const_buffer value_type;
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  typedef const boost::asio::const_buffer* const_iterator;
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  const boost::asio::const_buffer* begin() const { return &buffer_; }
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  const boost::asio::const_buffer* end() const { return &buffer_ + 1; }
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  boost::asio::const_buffer buffer_;
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  session(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:    boost::asio::async_write(socket_, buffer,
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  server(boost::asio::io_context& io_context, short port)
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/buffers/reference_counted.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:  udp_daytime_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:      socket_.send_to(boost::asio::buffer(message),
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:    boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:        boost::bind(&boost::asio::io_context::stop, &io_context));
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:    io_context.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:        //   io_context.notify_fork(boost::asio::io_context::fork_parent);
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:        //   io_context.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/example/cpp03/fork/daemon.cpp:    io_context.notify_fork(boost::asio::io_context::fork_child);
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:      io_context_.notify_fork(boost::asio::io_context::fork_prepare);
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:        io_context_.notify_fork(boost::asio::io_context::fork_child);
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:        io_context_.notify_fork(boost::asio::io_context::fork_parent);
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:    socket_.async_read_some(boost::asio::buffer(data_),
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data_, length),
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:  boost::asio::signal_set signal_;
+boost_1_69_0/libs/asio/example/cpp03/fork/process_per_connection.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:using boost::asio::steady_timer;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:  tcp_session(boost::asio::io_context& io_context, channel& ch)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:    input_deadline_.expires_after(boost::asio::chrono::seconds(30));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:    boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:        boost::asio::dynamic_buffer(input_buffer_), '\n',
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:    output_deadline_.expires_after(boost::asio::chrono::seconds(30));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:    boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:        boost::asio::buffer(output_queue_.front()),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:  udp_broadcaster(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:    socket_.send(boost::asio::buffer(msg), 0, ignored_ec);
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:  server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/server.cpp:        boost::asio::ip::make_address(argv[2]), atoi(argv[3]));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:  close_after(boost::asio::chrono::steady_clock::duration t, tcp::socket& s)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:  boost::asio::chrono::steady_clock::duration timeout_;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    boost::asio::io_context& io_context = socket_.get_executor().context();
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:  boost::asio::chrono::steady_clock::duration timeout_;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:        close_after(boost::asio::chrono::seconds(10), socket));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    boost::asio::chrono::steady_clock::time_point time_sent =
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:      boost::asio::chrono::steady_clock::now();
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    boost::asio::async_write(socket, boost::asio::buffer(msg),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:        close_after(boost::asio::chrono::seconds(10), socket));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:      std::size_t n = boost::asio::async_read_until(socket,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:          boost::asio::dynamic_buffer(input_buffer), '\n',
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:          close_after(boost::asio::chrono::seconds(10), socket));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    boost::asio::chrono::steady_clock::time_point time_received =
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:      boost::asio::chrono::steady_clock::now();
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:    std::cout << boost::asio::chrono::duration_cast<
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_token_tcp_client.cpp:      boost::asio::chrono::microseconds>(
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:  std::size_t receive(const boost::asio::mutable_buffer& buffer,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:      boost::asio::chrono::steady_clock::duration timeout,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:    socket_.async_receive(boost::asio::buffer(buffer),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:  void run(boost::asio::chrono::steady_clock::duration timeout)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:        boost::asio::ip::make_address(argv[1]),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:      std::size_t n = c.receive(boost::asio::buffer(data),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_udp_client.cpp:          boost::asio::chrono::seconds(10), ec);
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:using boost::asio::steady_timer;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:  client(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:      deadline_.expires_after(boost::asio::chrono::seconds(60));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:    deadline_.expires_after(boost::asio::chrono::seconds(30));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:    boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:        boost::asio::dynamic_buffer(input_buffer_), '\n',
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:    boost::asio::async_write(socket_, boost::asio::buffer("\n", 1),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:      heartbeat_timer_.expires_after(boost::asio::chrono::seconds(10));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/async_tcp_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:      boost::asio::chrono::steady_clock::duration timeout)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    boost::asio::async_connect(socket_, endpoints, var(ec) = _1);
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:  std::string read_line(boost::asio::chrono::steady_clock::duration timeout)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    boost::asio::async_read_until(socket_,
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:        boost::asio::dynamic_buffer(input_buffer_),
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:      boost::asio::chrono::steady_clock::duration timeout)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(data), var(ec) = _1);
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:  void run(boost::asio::chrono::steady_clock::duration timeout)
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    c.connect(argv[1], argv[2], boost::asio::chrono::seconds(10));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    boost::asio::chrono::steady_clock::time_point time_sent =
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:      boost::asio::chrono::steady_clock::now();
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    c.write_line(argv[3], boost::asio::chrono::seconds(10));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:      std::string line = c.read_line(boost::asio::chrono::seconds(10));
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    boost::asio::chrono::steady_clock::time_point time_received =
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:      boost::asio::chrono::steady_clock::now();
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:    std::cout << boost::asio::chrono::duration_cast<
+boost_1_69_0/libs/asio/example/cpp03/timeouts/blocking_tcp_client.cpp:      boost::asio::chrono::microseconds>(
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:typedef boost::asio::ssl::stream<boost::asio::ip::tcp::socket> ssl_socket;
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:  session(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:      boost::asio::ssl::context& context)
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:    socket_.async_handshake(boost::asio::ssl::stream_base::server,
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:      socket_.async_read_some(boost::asio::buffer(data_, max_length),
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:          boost::asio::buffer(data_, bytes_transferred),
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:      socket_.async_read_some(boost::asio::buffer(data_, max_length),
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:          boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port)),
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:      context_(boost::asio::ssl::context::sslv23)
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:        boost::asio::ssl::context::default_workarounds
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:        | boost::asio::ssl::context::no_sslv2
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:        | boost::asio::ssl::context::single_dh_use);
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:    context_.use_private_key_file("server.pem", boost::asio::ssl::context::pem);
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:  boost::asio::ssl::context context_;
+boost_1_69_0/libs/asio/example/cpp03/ssl/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:  client(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:      boost::asio::ssl::context& context,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:      boost::asio::ip::tcp::resolver::results_type endpoints)
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:    socket_.set_verify_mode(boost::asio::ssl::verify_peer);
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:    boost::asio::async_connect(socket_.lowest_layer(), endpoints,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:      boost::asio::ssl::verify_context& ctx)
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:      socket_.async_handshake(boost::asio::ssl::stream_base::client,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:      boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:          boost::asio::buffer(request_, request_length),
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:      boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:          boost::asio::buffer(reply_, bytes_transferred),
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:  boost::asio::ssl::stream<boost::asio::ip::tcp::socket> socket_;
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:    boost::asio::ip::tcp::resolver resolver(io_context);
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:    boost::asio::ip::tcp::resolver::results_type endpoints =
+boost_1_69_0/libs/asio/example/cpp03/ssl/client.cpp:    boost::asio::ssl::context ctx(boost::asio::ssl::context::sslv23);
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:  request(command_type cmd, const boost::asio::ip::tcp::endpoint& endpoint,
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:    if (endpoint.protocol() != boost::asio::ip::tcp::v4())
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:          boost::asio::error::address_family_not_supported);
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:  boost::array<boost::asio::const_buffer, 7> buffers() const
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:    boost::array<boost::asio::const_buffer, 7> bufs =
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&version_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&command_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&port_high_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&port_low_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(address_),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(user_id_),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&null_byte_, 1)
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:  boost::asio::ip::address_v4::bytes_type address_;
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:  boost::array<boost::asio::mutable_buffer, 5> buffers()
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:    boost::array<boost::asio::mutable_buffer, 5> bufs =
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&null_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&status_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&port_high_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(&port_low_byte_, 1),
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:        boost::asio::buffer(address_)
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:  boost::asio::ip::tcp::endpoint endpoint() const
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:    boost::asio::ip::address_v4 address(address_);
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:    return boost::asio::ip::tcp::endpoint(address, port);
+boost_1_69_0/libs/asio/example/cpp03/socks4/socks4.hpp:  boost::asio::ip::address_v4::bytes_type address_;
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:    boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:    boost::asio::write(socket, socks_request.buffers());
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:    boost::asio::read(socket, socks_reply.buffers());
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:    boost::asio::write(socket, boost::asio::buffer(request));
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:          boost::asio::buffer(response), error))
+boost_1_69_0/libs/asio/example/cpp03/socks4/sync_client.cpp:    if (error != boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:typedef boost::shared_ptr<boost::asio::steady_timer> timer_ptr;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:          boost::asio::placeholders::error, new_socket));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:    timer_.expires_after(boost::asio::chrono::milliseconds(100));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:      boost::asio::async_read(*socket, request->to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:            boost::asio::placeholders::error, socket, request));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:          boost::asio::placeholders::error, new_socket));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:          new boost::asio::steady_timer(acceptor_.get_executor().context()));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:      delay_timer->expires_after(boost::asio::chrono::seconds(2));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:    boost::asio::async_read(*socket, request->to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:          boost::asio::placeholders::error, socket, request));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:    timer_.expires_after(boost::asio::chrono::milliseconds(100));
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/protocol.hpp:  boost::array<boost::asio::mutable_buffer, 1> to_buffers()
+boost_1_69_0/libs/asio/example/cpp03/porthopper/protocol.hpp:    boost::array<boost::asio::mutable_buffer, 1> buffers
+boost_1_69_0/libs/asio/example/cpp03/porthopper/protocol.hpp:      = { { boost::asio::buffer(data_) } };
+boost_1_69_0/libs/asio/example/cpp03/porthopper/protocol.hpp:  boost::array<boost::asio::mutable_buffer, 1> to_buffers()
+boost_1_69_0/libs/asio/example/cpp03/porthopper/protocol.hpp:    boost::array<boost::asio::mutable_buffer, 1> buffers
+boost_1_69_0/libs/asio/example/cpp03/porthopper/protocol.hpp:      = { { boost::asio::buffer(data_) } };
+boost_1_69_0/libs/asio/example/cpp03/porthopper/client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/porthopper/client.cpp:    boost::asio::write(control_socket, start.to_buffers());
+boost_1_69_0/libs/asio/example/cpp03/porthopper/client.cpp:      boost::asio::async_write(control_socket, change.to_buffers(),
+boost_1_69_0/libs/asio/example/cpp03/porthopper/client.cpp:                  lambda::bind(&boost::asio::io_context::stop, &io_context),
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:    if (std::size_t len = socket_.read_some(boost::asio::buffer(data_), ec))
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:      write_buffer_ = boost::asio::buffer(data_, len);
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:          boost::asio::buffer(write_buffer_), ec))
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:      state_ = boost::asio::buffer_size(write_buffer_) > 0 ? writing : reading;
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:  boost::asio::const_buffer write_buffer_;
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:  connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:            boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:    if (!ec || ec == boost::asio::error::would_block)
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:    if (!ec || ec == boost::asio::error::would_block)
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:  server(boost::asio::io_context& io_context, unsigned short port)
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/nonblocking/third_party_lib.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer2/timer.cpp:  boost::asio::io_context io;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer2/timer.cpp:  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:  tcp_connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:  tcp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:  udp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime7/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:  printer(boost::asio::io_context& io)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:      timer1_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:      timer2_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:    timer1_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:    timer2_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:      timer1_.expires_at(timer1_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:      timer1_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:      timer2_.expires_at(timer2_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:      timer2_.async_wait(boost::asio::bind_executor(strand_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:  boost::asio::io_context::strand strand_;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:  boost::asio::steady_timer timer1_;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:  boost::asio::steady_timer timer2_;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:  boost::asio::io_context io;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer5/timer.cpp:  boost::thread t(boost::bind(&boost::asio::io_context::run, &io));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:All programs that use asio need to have at least one boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::ip::tcp::resolver object.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::ip::tcp::resolver::iterator. (Note that a default constructed
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::ip::tcp::resolver::iterator object can be used as an end iterator.)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:version. The boost::asio::connect() function does this for us automatically.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::connect
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:We use a <tt>boost::array</tt> to hold the received data. The boost::asio::buffer()
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:When the server closes the connection, the boost::asio::ip::tcp::socket::read_some()
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:function will exit with the boost::asio::error::eof error, which is how we know to
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:A boost::asio::ip::tcp::acceptor object needs to be created to listen
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::io_context object provides I/O services, such as sockets, that the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:Run the boost::asio::io_context object so that it will perform asynchronous operations
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:In the function <tt>start()</tt>, we call boost::asio::async_write() to serve the data
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:to the client. Note that we are using boost::asio::async_write(), rather than
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::ip::tcp::socket::async_write_some(), to ensure that the entire block of
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:this program, both of the argument placeholders (boost::asio::placeholders::error and
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::placeholders::bytes_transferred) could potentially have been removed,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:The boost::asio::async_write() call used to initiate the call can then be changed to
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:  boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:We use an boost::asio::ip::udp::resolver object to find the correct remote endpoint to
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:IPv4 endpoints by the boost::asio::ip::udp::v4() argument.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:The boost::asio::ip::udp::resolver::resolve() function is guaranteed to return at
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::ip::udp::socket and initiate contact with the remote endpoint.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::ip::udp::socket::receive_from(). 
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:Create an boost::asio::ip::udp::socket object to receive requests on UDP port 13.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:be populated by boost::asio::ip::udp::socket::receive_from().
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:the boost::asio::io_context object.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:The function boost::asio::ip::udp::socket::async_receive_from() will cause the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:is received, the boost::asio::io_context object will invoke the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:request, the boost::asio::io_context object would return an error if the client sent
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:We now call boost::asio::ip::udp::socket::async_send_to() to serve the data to the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::placeholders::bytes_transferred
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:this program, both of the argument placeholders (boost::asio::placeholders::error and
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:boost::asio::placeholders::bytes_transferred) could potentially have been removed.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime_dox.txt:We have created two lots of work for the boost::asio::io_context object to do.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime4/client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime4/client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime4/client.cpp:    socket.send_to(boost::asio::buffer(send_buf), receiver_endpoint);
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime4/client.cpp:        boost::asio::buffer(recv_buf), sender_endpoint);
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer4/timer.cpp:  printer(boost::asio::io_context& io)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer4/timer.cpp:    : timer_(io, boost::asio::chrono::seconds(1)),
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer4/timer.cpp:      timer_.expires_at(timer_.expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer4/timer.cpp:  boost::asio::steady_timer timer_;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer4/timer.cpp:  boost::asio::io_context io;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:  udp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:            boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:            boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime6/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:All programs that use asio need to have at least one boost::asio::io_context object.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:Next we declare an object of type boost::asio::steady_timer. The core asio classes
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:\until boost::asio::steady_timer
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:That is, the call to boost::asio::steady_timer::wait() will not return until the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::steady_timer::wait() function is called on an expired timer, it will
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:\until boost::asio::steady_timer 
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:we call the boost::asio::steady_timer::async_wait() function to perform an
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:Finally, we must call the boost::asio::io_context::run() member function
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:be called from threads that are currently calling boost::asio::io_context::run().
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:Therefore unless the boost::asio::io_context::run() function is called the callback for
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:The boost::asio::io_context::run() function will also continue to run while there is
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:calling boost::asio::io_context::run(). For example, if we had omitted the above call
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:to boost::asio::steady_timer::async_wait(), the io_context would not have had any
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:work to do, and consequently boost::asio::io_context::run() would have returned
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:tutorial Timer.2 we learnt that the boost::asio::io_context::run() function completes
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:with your callback handler. The boost::asio::steady_timer::async_wait() function
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:In this example, the boost::asio::placeholders::error argument to boost::bind() is a
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:\until boost::asio::io_context
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:\until boost::asio::steady_timer
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::steady_timer::async_wait() from <tt>main</tt> we bind the additional
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:You will note that the boost::asio::placeholders::error placeholder is not specified
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:This tutorial demonstrates the use of the boost::asio::io_context::strand class to
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:calling the boost::asio::io_context::run() function from one thread only. As you
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::io_context::run(). Consequently, calling boost::asio::io_context::run() from
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:is to have a pool of threads calling boost::asio::io_context::run(). However, as this
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:In addition to initialising a pair of boost::asio::steady_timer members, the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::io_context::strand.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:An boost::asio::io_context::strand is an executor that guarantees that, for those
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:the number of threads that are calling boost::asio::io_context::run(). Of course, the
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:<b>not</b> dispatched through an boost::asio::io_context::strand, or were dispatched
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:through a different boost::asio::io_context::strand object.
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:to an boost::asio::io_context::strand object. The
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::io_context::strand::bind_executor() function returns a new handler that
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::io_context::strand object. By binding the handlers to the same
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::io_context::strand, we are ensuring that they cannot execute
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:The <tt>main</tt> function now causes boost::asio::io_context::run() to
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer_dox.txt:boost::asio::io_context::run() will continue to execute while there is "work" left to
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime1/client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime1/client.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime1/client.cpp:    boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime1/client.cpp:      size_t len = socket.read_some(boost::asio::buffer(buf), error);
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime1/client.cpp:      if (error == boost::asio::error::eof)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:  static pointer create(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:          boost::asio::placeholders::error,
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:          boost::asio::placeholders::bytes_transferred));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:  tcp_connection(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:  tcp_server(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:          boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime3/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer3/timer.cpp:    boost::asio::steady_timer* t, int* count)
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer3/timer.cpp:    t->expires_at(t->expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer3/timer.cpp:          boost::asio::placeholders::error, t, count));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer3/timer.cpp:  boost::asio::io_context io;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer3/timer.cpp:  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer3/timer.cpp:        boost::asio::placeholders::error, &t, &count));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer1/timer.cpp:  boost::asio::io_context io;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/timer1/timer.cpp:  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime2/server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime2/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime2/server.cpp:      boost::asio::write(socket, boost::asio::buffer(message), ignored_error);
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime5/server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime5/server.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime5/server.cpp:      socket.receive_from(boost::asio::buffer(recv_buf), remote_endpoint);
+boost_1_69_0/libs/asio/example/cpp03/tutorial/daytime5/server.cpp:      socket.send_to(boost::asio::buffer(message),
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  typedef boost::asio::io_context io_context_type;
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  test_stream(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:        boost::asio::detail::bind_handler(handler, error, 0));
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:        boost::asio::detail::bind_handler(handler, error, 0));
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::ip::tcp::socket>::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::buffered_read_stream<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:        boost::asio::ip::tcp::socket> >::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::buffered_write_stream<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:        boost::asio::ip::tcp::socket> >::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::buffered_stream<boost::asio::ip::tcp::socket> >::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_read_buffered<test_stream>::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::buffered_read_stream<test_stream> >::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::buffered_write_stream<test_stream> >::value);
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_read_buffered<
+boost_1_69_0/libs/asio/test/is_read_buffered.cpp:      boost::asio::buffered_stream<test_stream> >::value);
+boost_1_69_0/libs/asio/test/ip/address.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/address.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/host_name.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/host_name.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/udp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/udp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/udp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/udp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/udp.cpp:      boost::asio::ip::udp::resolver::results_type) {}
+boost_1_69_0/libs/asio/test/ip/udp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/udp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/v6_only.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/v6_only.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/v6_only.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/v6_only.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:    array<boost::asio::mutable_buffer, 2> mutable_buffers = {{
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:        boost::asio::buffer(mutable_char_buffer, 10),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:        boost::asio::buffer(mutable_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:    array<boost::asio::const_buffer, 2> const_buffers = {{
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:        boost::asio::buffer(const_char_buffer, 10),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:        boost::asio::buffer(const_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  BOOST_ASIO_CHECK(err == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  BOOST_ASIO_CHECK(err == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::mutable_buffer(0, 0),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::const_buffer(0, 0),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  boost::asio::async_read(client_side_socket,
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::buffer(read_buffer),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  boost::asio::async_write(server_side_socket,
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::buffer(write_data),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  boost::asio::async_read(server_side_socket,
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::buffer(read_buffer),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  boost::asio::async_read(client_side_socket,
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::buffer(read_buffer),
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      const boost::system::error_code&, boost::asio::ip::tcp::socket) {}
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::ip::tcp::resolver::results_type) {}
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:      boost::asio::ip::tcp::resolver::iterator) {}
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/ip/tcp.cpp:  boost::asio::ip::tcp::socket sock(ioc);
+boost_1_69_0/libs/asio/test/ip/address_v4.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/address_v4.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/address_v4.cpp:  using boost::asio::ip::address_v4;
+boost_1_69_0/libs/asio/test/ip/multicast.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/multicast.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/multicast.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/multicast.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/multicast.cpp:    BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/ip/multicast.cpp:    BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/ip/network_v6.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/network_v6.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/network_v6.cpp:  using boost::asio::ip::address_v6;
+boost_1_69_0/libs/asio/test/ip/network_v6.cpp:  using boost::asio::ip::make_address_v6;
+boost_1_69_0/libs/asio/test/ip/network_v6.cpp:  using boost::asio::ip::network_v6;
+boost_1_69_0/libs/asio/test/ip/network_v6.cpp:  using boost::asio::ip::make_network_v6;
+boost_1_69_0/libs/asio/test/ip/network_v4.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/network_v4.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/network_v4.cpp:  using boost::asio::ip::address_v4;
+boost_1_69_0/libs/asio/test/ip/network_v4.cpp:  using boost::asio::ip::make_address_v4;
+boost_1_69_0/libs/asio/test/ip/network_v4.cpp:  using boost::asio::ip::network_v4;
+boost_1_69_0/libs/asio/test/ip/network_v4.cpp:  using boost::asio::ip::make_network_v4;
+boost_1_69_0/libs/asio/test/ip/icmp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/icmp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/icmp.cpp:      boost::asio::ip::icmp::resolver::results_type) {}
+boost_1_69_0/libs/asio/test/ip/icmp.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/icmp.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:    BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:    BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:    BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/ip/unicast.cpp:    BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/ip/address_v6.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ip/address_v6.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ip/address_v6.cpp:  using boost::asio::ip::address_v6;
+boost_1_69_0/libs/asio/test/local/connect_pair.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/local/connect_pair.cpp:  namespace local = boost::asio::local;
+boost_1_69_0/libs/asio/test/local/connect_pair.cpp:    boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/local/stream_protocol.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/local/stream_protocol.cpp:  namespace local = boost::asio::local;
+boost_1_69_0/libs/asio/test/local/datagram_protocol.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/local/datagram_protocol.cpp:  namespace local = boost::asio::local;
+boost_1_69_0/libs/asio/test/socket_base.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/socket_base.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/socket_base.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/socket_base.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/socket_base.cpp:  bool not_root = (ec == boost::asio::error::access_denied);
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/socket_base.cpp:  BOOST_ASIO_CHECK_MESSAGE(ec == boost::asio::error::no_protocol_option,
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:    return (ec && ec != boost::asio::error::would_block) ? 0 : ~0;
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:    tcp::endpoint target(boost::asio::ip::make_address(ip), port);
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:    boost::asio::write(socket,
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:        boost::asio::buffer(write_buf),
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:    boost::asio::read(socket,
+boost_1_69_0/libs/asio/test/latency/tcp_client.cpp:        boost::asio::buffer(read_buf),
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:using boost::asio::ip::tcp;
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:class tcp_server : boost::asio::coroutine
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:        yield boost::asio::async_read(socket_,
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:            boost::asio::buffer(buffer_), ref(this));
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:          yield boost::asio::async_write(socket_,
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:              boost::asio::buffer(buffer_), ref(this));
+boost_1_69_0/libs/asio/test/latency/tcp_server.cpp:  boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/test/latency/udp_server.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/test/latency/udp_server.cpp:class udp_server : boost::asio::coroutine
+boost_1_69_0/libs/asio/test/latency/udp_server.cpp:  udp_server(boost::asio::io_context& io_context,
+boost_1_69_0/libs/asio/test/latency/udp_server.cpp:          boost::asio::buffer(buffer_),
+boost_1_69_0/libs/asio/test/latency/udp_server.cpp:        socket_.send_to(boost::asio::buffer(buffer_, n), sender_, 0, ec);
+boost_1_69_0/libs/asio/test/latency/udp_server.cpp:  boost::asio::io_context io_context(1);
+boost_1_69_0/libs/asio/test/latency/udp_client.cpp:using boost::asio::ip::udp;
+boost_1_69_0/libs/asio/test/latency/udp_client.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/latency/udp_client.cpp:  udp::endpoint target(boost::asio::ip::make_address(ip), first_port);
+boost_1_69_0/libs/asio/test/latency/udp_client.cpp:    socket.send_to(boost::asio::buffer(write_buf), target, 0, ec);
+boost_1_69_0/libs/asio/test/latency/udp_client.cpp:    do socket.receive(boost::asio::buffer(read_buf), 0, ec);
+boost_1_69_0/libs/asio/test/latency/udp_client.cpp:    while (ec == boost::asio::error::would_block);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:void decrement_to_zero(boost::asio::deadline_timer* t, int* count)
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:void cancel_timer(boost::asio::deadline_timer* t)
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:void cancel_one_timer(boost::asio::deadline_timer* t)
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t1(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t2(ioc, seconds(1) + microseconds(500000));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t3(ioc, seconds(5));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t4(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t5(ioc, seconds(10));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t6(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t7(ioc, seconds(3));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:        boost::asio::placeholders::error));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t8(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  static boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:    boost::asio::deadline_timer t;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  static boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:    boost::asio::deadline_timer t;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:void io_context_run(boost::asio::io_context* ioc)
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::executor_work_guard<boost::asio::io_context::executor_type> work
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:    = boost::asio::make_work_guard(ioc);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t1(ioc);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t2(ioc);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::detail::thread th(boost::bind(io_context_run, &ioc));
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t1(ioc);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:boost::asio::deadline_timer make_timer(boost::asio::io_context& ioc, int* count)
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t(ioc);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::io_context io_context1;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::io_context io_context2;
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t1 = make_timer(io_context1, &count);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t2 = make_timer(io_context2, &count);
+boost_1_69_0/libs/asio/test/deadline_timer.cpp:  boost::asio::deadline_timer t3 = std::move(t1);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::access_denied);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::address_family_not_supported);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::address_in_use);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::already_connected);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::already_started);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::connection_aborted);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::connection_refused);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::connection_reset);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::bad_descriptor);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::fault);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::host_not_found);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::host_not_found_try_again);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::host_unreachable);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::in_progress);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::interrupted);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::invalid_argument);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::message_size);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::network_down);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::network_reset);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::network_unreachable);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_descriptors);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_buffer_space);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_data);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_memory);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_permission);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_protocol_option);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::no_recovery);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::not_connected);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::not_socket);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::operation_not_supported);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::service_not_found);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::shut_down);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::timed_out);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::try_again);
+boost_1_69_0/libs/asio/test/error.cpp:  test_error_code(boost::asio::error::would_block);
+boost_1_69_0/libs/asio/test/posix/stream_descriptor.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/posix/stream_descriptor.cpp:  namespace posix = boost::asio::posix;
+boost_1_69_0/libs/asio/test/windows/object_handle.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/windows/object_handle.cpp:  namespace win = boost::asio::windows;
+boost_1_69_0/libs/asio/test/windows/stream_handle.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/windows/stream_handle.cpp:  namespace win = boost::asio::windows;
+boost_1_69_0/libs/asio/test/windows/overlapped_ptr.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/windows/overlapped_ptr.cpp:  namespace win = boost::asio::windows;
+boost_1_69_0/libs/asio/test/windows/random_access_handle.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/windows/random_access_handle.cpp:  namespace win = boost::asio::windows;
+boost_1_69_0/libs/asio/test/windows/random_access_handle.cpp:    boost::asio::uint64_t offset = 0;
+boost_1_69_0/libs/asio/test/buffer.cpp:using namespace boost::asio;
+boost_1_69_0/libs/asio/test/buffer.cpp:using namespace boost::asio;
+boost_1_69_0/libs/asio/test/buffer.cpp:  mutable_buffer mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mutable_buffer mb2 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  const_buffer cb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mutable_buffers_1 mbc1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  const_buffers_1 cbc1 = const_buffers_1(boost::asio::buffer(source_data));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mutable_buffers_1 mbc2 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cbc1 = const_buffers_1(boost::asio::buffer(source_data));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(source_data, 5));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(source_data) + 5);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data, 6));
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data) + 6);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data, 7));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data) + 7);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data, 7));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data) + 7);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data, 8));
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data) + 8);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb2 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cbc1 = const_buffers_1(boost::asio::buffer(source_data));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc2 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mbc1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cbc1 = const_buffers_1(boost::asio::buffer(source_data));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(source_data, 5));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(source_data) + 5);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mb1 = boost::asio::buffer(dest_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data, 6));
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data) + 6);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data, 7));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data) + 7);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cb1 = boost::asio::buffer(source_data);
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data, 7));
+boost_1_69_0/libs/asio/test/buffer.cpp:  mv1.push_back(boost::asio::buffer(dest_data) + 7);
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data, 8));
+boost_1_69_0/libs/asio/test/buffer.cpp:  cv1.push_back(boost::asio::buffer(source_data) + 8);
+boost_1_69_0/libs/asio/test/generic/seq_packet_protocol.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/generic/seq_packet_protocol.cpp:  namespace generic = boost::asio::generic;
+boost_1_69_0/libs/asio/test/generic/raw_protocol.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/generic/raw_protocol.cpp:  namespace generic = boost::asio::generic;
+boost_1_69_0/libs/asio/test/generic/raw_protocol.cpp:    boost::asio::ip::icmp::socket icmp_socket(ioc);
+boost_1_69_0/libs/asio/test/generic/raw_protocol.cpp:    socket1 = boost::asio::ip::icmp::socket(ioc);
+boost_1_69_0/libs/asio/test/generic/stream_protocol.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/generic/stream_protocol.cpp:  namespace generic = boost::asio::generic;
+boost_1_69_0/libs/asio/test/generic/stream_protocol.cpp:    boost::asio::ip::tcp::socket tcp_socket(ioc);
+boost_1_69_0/libs/asio/test/generic/stream_protocol.cpp:    socket1 = boost::asio::ip::tcp::socket(ioc);
+boost_1_69_0/libs/asio/test/generic/datagram_protocol.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/generic/datagram_protocol.cpp:  namespace generic = boost::asio::generic;
+boost_1_69_0/libs/asio/test/generic/datagram_protocol.cpp:    boost::asio::ip::udp::socket udp_socket(ioc);
+boost_1_69_0/libs/asio/test/generic/datagram_protocol.cpp:    socket1 = boost::asio::ip::udp::socket(ioc);
+boost_1_69_0/libs/asio/test/unit_test.hpp:  boost::asio::detail::test_name();
+boost_1_69_0/libs/asio/test/unit_test.hpp:  boost::asio::detail::test_errors();
+boost_1_69_0/libs/asio/test/unit_test.hpp:  long errors = boost::asio::detail::test_errors();
+boost_1_69_0/libs/asio/test/unit_test.hpp:  long errors_before = boost::asio::detail::test_errors();
+boost_1_69_0/libs/asio/test/unit_test.hpp:      << boost::asio::detail::test_name() << ": " \
+boost_1_69_0/libs/asio/test/unit_test.hpp:    ++boost::asio::detail::test_errors(); \
+boost_1_69_0/libs/asio/test/unit_test.hpp:      << boost::asio::detail::test_name() << ": " \
+boost_1_69_0/libs/asio/test/unit_test.hpp:    ++boost::asio::detail::test_errors(); \
+boost_1_69_0/libs/asio/test/unit_test.hpp:      << boost::asio::detail::test_name() << ": " \
+boost_1_69_0/libs/asio/test/unit_test.hpp:      << boost::asio::detail::test_name() << ": " \
+boost_1_69_0/libs/asio/test/unit_test.hpp:    ++boost::asio::detail::test_errors(); \
+boost_1_69_0/libs/asio/test/unit_test.hpp:    boost::asio::detail::begin_test_suite(name); \
+boost_1_69_0/libs/asio/test/unit_test.hpp:    return boost::asio::detail::end_test_suite(name); \
+boost_1_69_0/libs/asio/test/unit_test.hpp:  boost::asio::detail::run_test<&test>(#test);
+boost_1_69_0/libs/asio/test/unit_test.hpp:  boost::asio::detail::compile_test<&test>(#test);
+boost_1_69_0/libs/asio/test/streambuf.cpp:  boost::asio::streambuf sb;
+boost_1_69_0/libs/asio/test/streambuf.cpp:    boost::asio::buffer_copy(sb.prepare(10), boost::asio::buffer("cd", 2));
+boost_1_69_0/libs/asio/test/io_context.cpp:using namespace boost::asio;
+boost_1_69_0/libs/asio/test/io_context.cpp:namespace chronons = boost::asio::chrono;
+boost_1_69_0/libs/asio/test/io_context.cpp:    boost::asio::post(*ioc, bindns::bind(decrement_to_zero, ioc, count));
+boost_1_69_0/libs/asio/test/io_context.cpp:    boost::asio::dispatch(*ioc,
+boost_1_69_0/libs/asio/test/io_context.cpp:    boost::asio::post(*ioc, bindns::bind(sleep_increment, ioc, count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(*ioc, bindns::bind(sleep_increment, ioc, count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(&io_context::stop, &ioc));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(decrement_to_zero, &ioc, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(nested_decrement_to_zero, &ioc, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::dispatch(ioc,
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(start_sleep_increments, &ioc, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(start_sleep_increments, &ioc, &count2));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::detail::thread thread1(bindns::bind(io_context_run, &ioc));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::detail::thread thread2(bindns::bind(io_context_run, &ioc));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::dispatch(ioc, boost::asio::bind_executor(ioc2,
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, &throw_exception);
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, &throw_exception);
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::post(ioc, bindns::bind(increment, &count));
+boost_1_69_0/libs/asio/test/io_context.cpp:class test_service : public boost::asio::io_context::service
+boost_1_69_0/libs/asio/test/io_context.cpp:  static boost::asio::io_context::id id;
+boost_1_69_0/libs/asio/test/io_context.cpp:  test_service(boost::asio::io_context& s)
+boost_1_69_0/libs/asio/test/io_context.cpp:    : boost::asio::io_context::service(s) {}
+boost_1_69_0/libs/asio/test/io_context.cpp:boost::asio::io_context::id test_service::id;
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::io_context ioc1;
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::io_context ioc2;
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::io_context ioc3;
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::use_service<test_service>(ioc1);
+boost_1_69_0/libs/asio/test/io_context.cpp:  BOOST_ASIO_CHECK(boost::asio::has_service<test_service>(ioc1));
+boost_1_69_0/libs/asio/test/io_context.cpp:    boost::asio::add_service(ioc1, svc1);
+boost_1_69_0/libs/asio/test/io_context.cpp:  catch (boost::asio::service_already_exists&)
+boost_1_69_0/libs/asio/test/io_context.cpp:  boost::asio::add_service(ioc2, svc2);
+boost_1_69_0/libs/asio/test/io_context.cpp:  BOOST_ASIO_CHECK(boost::asio::has_service<test_service>(ioc2));
+boost_1_69_0/libs/asio/test/io_context.cpp:  BOOST_ASIO_CHECK(&boost::asio::use_service<test_service>(ioc2) == svc2);
+boost_1_69_0/libs/asio/test/io_context.cpp:    boost::asio::add_service(ioc2, svc3);
+boost_1_69_0/libs/asio/test/io_context.cpp:  catch (boost::asio::service_already_exists&)
+boost_1_69_0/libs/asio/test/io_context.cpp:    boost::asio::add_service(ioc3, svc4);
+boost_1_69_0/libs/asio/test/io_context.cpp:  catch (boost::asio::invalid_service_owner&)
+boost_1_69_0/libs/asio/test/io_context.cpp:  BOOST_ASIO_CHECK(!boost::asio::has_service<test_service>(ioc3));
+boost_1_69_0/libs/asio/test/write.cpp:  typedef boost::asio::io_context::executor_type executor_type;
+boost_1_69_0/libs/asio/test/write.cpp:  test_stream(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/write.cpp:      size_t buffer_length = boost::asio::buffer_size(*iter);
+boost_1_69_0/libs/asio/test/write.cpp:    return check_buffers(boost::asio::buffer_sequence_begin(buffers),
+boost_1_69_0/libs/asio/test/write.cpp:        boost::asio::buffer_sequence_end(buffers), length);
+boost_1_69_0/libs/asio/test/write.cpp:    size_t n = boost::asio::buffer_copy(
+boost_1_69_0/libs/asio/test/write.cpp:        boost::asio::buffer(data_, length_) + position_,
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::post(get_executor(),
+boost_1_69_0/libs/asio/test/write.cpp:        boost::asio::detail::bind_handler(
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 39) + 32);
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 39);
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 39) + 32);
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 39);
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 39) + 32);
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 39);
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 39) + 32);
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 39);
+boost_1_69_0/libs/asio/test/write.cpp:  size_t bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  bytes_transferred = boost::asio::write(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 39) + 32);
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 39);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::streambuf sb;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, sb, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data, 39) + 32);
+boost_1_69_0/libs/asio/test/write.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 39);
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::streambuf sb;
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  boost::asio::async_write(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write.cpp:  int i = boost::asio::async_write(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  typedef boost::asio::io_context io_context_type;
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  test_stream(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:        boost::asio::detail::bind_handler(handler, error, 0));
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:    boost::asio::post(io_context_,
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:        boost::asio::detail::bind_handler(handler, error, 0));
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::ip::tcp::socket>::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::buffered_read_stream<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:        boost::asio::ip::tcp::socket> >::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::buffered_write_stream<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:        boost::asio::ip::tcp::socket> >::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::buffered_stream<boost::asio::ip::tcp::socket> >::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_write_buffered<test_stream>::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::buffered_read_stream<test_stream> >::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::buffered_write_stream<test_stream> >::value);
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:  BOOST_ASIO_CHECK(!!boost::asio::is_write_buffered<
+boost_1_69_0/libs/asio/test/is_write_buffered.cpp:      boost::asio::buffered_stream<test_stream> >::value);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::operation_aborted);
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/use_future.cpp:  using boost::asio::use_future;
+boost_1_69_0/libs/asio/test/use_future.cpp:  boost::asio::io_context ctx;
+boost_1_69_0/libs/asio/test/buffers_iterator.cpp:using namespace boost::asio;
+boost_1_69_0/libs/asio/test/read.cpp:  typedef boost::asio::io_context::executor_type executor_type;
+boost_1_69_0/libs/asio/test/read.cpp:  test_stream(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/read.cpp:      size_t buffer_length = boost::asio::buffer_size(*iter);
+boost_1_69_0/libs/asio/test/read.cpp:    return check_buffers(boost::asio::buffer_sequence_begin(buffers),
+boost_1_69_0/libs/asio/test/read.cpp:        boost::asio::buffer_sequence_end(buffers), length);
+boost_1_69_0/libs/asio/test/read.cpp:    size_t n = boost::asio::buffer_copy(buffers,
+boost_1_69_0/libs/asio/test/read.cpp:        boost::asio::buffer(data_, length_) + position_,
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::post(get_executor(),
+boost_1_69_0/libs/asio/test/read.cpp:        boost::asio::detail::bind_handler(
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 39) + 32);
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 39);
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, sb);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 39) + 32);
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 39);
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, sb, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 39) + 32);
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 39);
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, old_style_transfer_all);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 39) + 32);
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 39);
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, buffers, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read.cpp:  size_t bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  bytes_transferred = boost::asio::read(s, sb, short_transfer, error);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 39) + 32);
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 39);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, sb, archetypes::lazy_handler());
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 39) + 32);
+boost_1_69_0/libs/asio/test/read.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 39);
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, buffers,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  boost::asio::async_read(s, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read.cpp:  int i = boost::asio::async_read(s, sb,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_0(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ec_0(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted)));
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ex_0(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_1(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ec_1(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted), 0));
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ex_1(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_2(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ec_2(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted),
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ex_2(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_3(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ec_3(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted),
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:typename boost::asio::async_result<
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:deprecated_async_op_ex_3(boost::asio::io_context& ctx,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  typedef typename boost::asio::handler_type<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/deprecated_async_ops.hpp:  boost::asio::async_result<handler_type> result(handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted)), a);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted),
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted),
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:          boost::system::error_code(boost::asio::error::operation_aborted),
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typedef typename boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  boost::asio::async_completion<CompletionToken,
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_allocator<handler_type>::type a
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_allocator(completion.completion_handler);
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:  typename boost::asio::associated_executor<handler_type>::type ex
+boost_1_69_0/libs/asio/test/archetypes/async_ops.hpp:    = boost::asio::get_associated_executor(completion.completion_handler);
+boost_1_69_0/libs/asio/test/connect.cpp:        boost::asio::ip::tcp::endpoint(
+boost_1_69_0/libs/asio/test/connect.cpp:          boost::asio::ip::address_v4::loopback(), 0)),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint target_endpoint()
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context_;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::acceptor acceptor_;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint target_endpoint_;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket_;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::detail::thread thread_;
+boost_1_69_0/libs/asio/test/connect.cpp:    const boost::asio::ip::tcp::endpoint& /*endpoint*/)
+boost_1_69_0/libs/asio/test/connect.cpp:std::vector<boost::asio::ip::tcp::endpoint>::const_iterator legacy_true_cond_1(
+boost_1_69_0/libs/asio/test/connect.cpp:    std::vector<boost::asio::ip::tcp::endpoint>::const_iterator next)
+boost_1_69_0/libs/asio/test/connect.cpp:    const boost::asio::ip::tcp::endpoint& /*endpoint*/)
+boost_1_69_0/libs/asio/test/connect.cpp:    const boost::asio::ip::tcp::endpoint& endpoint,
+boost_1_69_0/libs/asio/test/connect.cpp:    boost::asio::ip::tcp::endpoint* out_endpoint)
+boost_1_69_0/libs/asio/test/connect.cpp:    std::vector<boost::asio::ip::tcp::endpoint>::const_iterator iter,
+boost_1_69_0/libs/asio/test/connect.cpp:    std::vector<boost::asio::ip::tcp::endpoint>::const_iterator* out_iter)
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint result;
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint result;
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint result;
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, legacy_true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, legacy_true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, false_cond);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, false_cond);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, false_cond);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2());
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, endpoints, false_cond);
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint result;
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, false_cond, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, false_cond, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, false_cond, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_1, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, legacy_true_cond_2(), ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, endpoints, false_cond, ec);
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  const std::vector<boost::asio::ip::tcp::endpoint>& cendpoints = endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint>::const_iterator result;
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(), cendpoints.end());
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(), cendpoints.end());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(), cendpoints.end());
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(), cendpoints.end());
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  const std::vector<boost::asio::ip::tcp::endpoint>& cendpoints = endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint>::const_iterator result;
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket,
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket,
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  const std::vector<boost::asio::ip::tcp::endpoint>& cendpoints = endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint>::const_iterator result;
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:    BOOST_ASIO_CHECK(e.code() == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  const std::vector<boost::asio::ip::tcp::endpoint>& cendpoints = endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint>::const_iterator result;
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  result = boost::asio::connect(socket, cendpoints.begin(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint result;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::endpoint result;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, false_cond,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, false_cond,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, false_cond,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_1,
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, legacy_true_cond_2(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, endpoints, false_cond,
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(result == boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  const std::vector<boost::asio::ip::tcp::endpoint>& cendpoints = endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint>::const_iterator result;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::ip::tcp::socket socket(io_context);
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint> endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  const std::vector<boost::asio::ip::tcp::endpoint>& cendpoints = endpoints;
+boost_1_69_0/libs/asio/test/connect.cpp:  std::vector<boost::asio::ip::tcp::endpoint>::const_iterator result;
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/connect.cpp:  endpoints.insert(endpoints.begin(), boost::asio::ip::tcp::endpoint());
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  boost::asio::async_connect(socket, cendpoints.begin(), cendpoints.end(),
+boost_1_69_0/libs/asio/test/connect.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/strand.cpp:using namespace boost::asio;
+boost_1_69_0/libs/asio/test/strand.cpp:namespace chronons = boost::asio::chrono;
+boost_1_69_0/libs/asio/test/strand.cpp:  boost::asio::detail::thread thread1(bindns::bind(io_context_run, &ioc));
+boost_1_69_0/libs/asio/test/strand.cpp:  boost::asio::detail::thread thread2(bindns::bind(io_context_run, &ioc));
+boost_1_69_0/libs/asio/test/system_timer.cpp:void decrement_to_zero(boost::asio::system_timer* t, int* count)
+boost_1_69_0/libs/asio/test/system_timer.cpp:    t->expires_at(t->expiry() + boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/test/system_timer.cpp:void cancel_timer(boost::asio::system_timer* t)
+boost_1_69_0/libs/asio/test/system_timer.cpp:void cancel_one_timer(boost::asio::system_timer* t)
+boost_1_69_0/libs/asio/test/system_timer.cpp:boost::asio::system_timer::time_point now()
+boost_1_69_0/libs/asio/test/system_timer.cpp:  return boost::asio::system_timer::clock_type::now();
+boost_1_69_0/libs/asio/test/system_timer.cpp:  using boost::asio::chrono::seconds;
+boost_1_69_0/libs/asio/test/system_timer.cpp:  using boost::asio::chrono::microseconds;
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer::time_point start = now();
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t1(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer::time_point end = now();
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer::time_point expected_end = start + seconds(1);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t2(ioc, seconds(1) + microseconds(500000));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t3(ioc, seconds(5));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t4(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t5(ioc, seconds(10));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t6(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t7(ioc, seconds(3));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t8(ioc, seconds(1));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  static boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/system_timer.cpp:    boost::asio::system_timer t;
+boost_1_69_0/libs/asio/test/system_timer.cpp:      t.expires_at((boost::asio::system_timer::time_point::max)());
+boost_1_69_0/libs/asio/test/system_timer.cpp:  static boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/system_timer.cpp:    boost::asio::system_timer t;
+boost_1_69_0/libs/asio/test/system_timer.cpp:    timers[i].t.expires_at((boost::asio::system_timer::time_point::max)());
+boost_1_69_0/libs/asio/test/system_timer.cpp:    timers[i].t.expires_at((boost::asio::system_timer::time_point::min)());
+boost_1_69_0/libs/asio/test/system_timer.cpp:void io_context_run(boost::asio::io_context* ioc)
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::executor_work_guard<boost::asio::io_context::executor_type> work
+boost_1_69_0/libs/asio/test/system_timer.cpp:    = boost::asio::make_work_guard(ioc);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t1(ioc);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t2(ioc);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::detail::thread th(bindns::bind(io_context_run, &ioc));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  t2.expires_after(boost::asio::chrono::seconds(2));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  t1.expires_after(boost::asio::chrono::seconds(2));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  t2.expires_after(boost::asio::chrono::seconds(4));
+boost_1_69_0/libs/asio/test/system_timer.cpp:boost::asio::system_timer make_timer(boost::asio::io_context& ioc, int* count)
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t(ioc);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  t.expires_after(boost::asio::chrono::seconds(1));
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::io_context io_context1;
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::io_context io_context2;
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t1 = make_timer(io_context1, &count);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t2 = make_timer(io_context2, &count);
+boost_1_69_0/libs/asio/test/system_timer.cpp:  boost::asio::system_timer t3 = std::move(t1);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:typedef boost::asio::buffered_write_stream<
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:    boost::asio::ip::tcp::socket> stream_type;
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:    array<boost::asio::mutable_buffer, 2> mutable_buffers = {{
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(mutable_char_buffer, 10),
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(mutable_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:    array<boost::asio::const_buffer, 2> const_buffers = {{
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(const_char_buffer, 10),
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(const_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  boost::asio::ip::tcp::acceptor acceptor(io_context,
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:      boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 0));
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  boost::asio::ip::tcp::endpoint server_endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  server_endpoint.address(boost::asio::ip::address_v4::loopback());
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  const boost::asio::const_buffer write_buf = boost::asio::buffer(write_data);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(write_buf + bytes_written));
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  const boost::asio::mutable_buffer read_buf = boost::asio::buffer(read_data);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(read_buf + bytes_read));
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(write_buf + bytes_written));
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(read_buf + bytes_read));
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:      boost::asio::buffer(read_buf), error);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  BOOST_ASIO_CHECK(error == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  BOOST_ASIO_CHECK(e == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  boost::asio::ip::tcp::acceptor acceptor(io_context,
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:      boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 0));
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  boost::asio::ip::tcp::endpoint server_endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  server_endpoint.address(boost::asio::ip::address_v4::loopback());
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  const boost::asio::const_buffer write_buf = boost::asio::buffer(write_data);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(write_buf + bytes_written),
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  const boost::asio::mutable_buffer read_buf = boost::asio::buffer(read_data);
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(read_buf + bytes_read),
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(write_buf + bytes_written),
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:        boost::asio::buffer(read_buf + bytes_read),
+boost_1_69_0/libs/asio/test/buffered_write_stream.cpp:  client_socket.async_read_some(boost::asio::buffer(read_buf), handle_read_eof);
+boost_1_69_0/libs/asio/test/read_at.cpp:  typedef boost::asio::io_context::executor_type executor_type;
+boost_1_69_0/libs/asio/test/read_at.cpp:  test_random_access_device(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/read_at.cpp:  bool check_buffers(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/read_at.cpp:      size_t buffer_length = boost::asio::buffer_size(*iter);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bool check_buffers(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/read_at.cpp:    return check_buffers(offset, boost::asio::buffer_sequence_begin(buffers),
+boost_1_69_0/libs/asio/test/read_at.cpp:        boost::asio::buffer_sequence_end(buffers), length);
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t read_some_at(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/read_at.cpp:    return boost::asio::buffer_copy(buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:        boost::asio::buffer(data_, length_) + offset,
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t read_some_at(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/read_at.cpp:  void async_read_some_at(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::post(get_executor(),
+boost_1_69_0/libs/asio/test/read_at.cpp:        boost::asio::detail::bind_handler(
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read_at.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 32);
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, sb);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read_at.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 32);
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, sb, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb, error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read_at.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 32);
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb, short_transfer);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read_at.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 32);
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read_at.cpp:  size_t bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  bytes_transferred = boost::asio::read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read_at.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 32);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/read_at.cpp:    = boost::asio::buffer(read_buf, sizeof(read_buf));
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::array<boost::asio::mutable_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf, 32),
+boost_1_69_0/libs/asio/test/read_at.cpp:    boost::asio::buffer(read_buf) + 32 } };
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  std::vector<boost::asio::mutable_buffer> buffers;
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf, 32));
+boost_1_69_0/libs/asio/test/read_at.cpp:  buffers.push_back(boost::asio::buffer(read_buf) + 32);
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::streambuf sb(sizeof(read_data));
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/read_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  boost::asio::async_read_at(s, 1234, sb, short_transfer,
+boost_1_69_0/libs/asio/test/read_at.cpp:  int i = boost::asio::async_read_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/serial_port_base.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ssl/stream.cpp:bool verify_callback(bool, boost::asio::ssl::verify_context&)
+boost_1_69_0/libs/asio/test/ssl/stream.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/ssl/stream.cpp:  namespace ip = boost::asio::ip;
+boost_1_69_0/libs/asio/test/ssl/stream.cpp:    boost::asio::ssl::context context(boost::asio::ssl::context::sslv23);
+boost_1_69_0/libs/asio/test/serial_port.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/read_until.cpp:  typedef boost::asio::io_context::executor_type executor_type;
+boost_1_69_0/libs/asio/test/read_until.cpp:  test_stream(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/read_until.cpp:    size_t n = boost::asio::buffer_copy(buffers,
+boost_1_69_0/libs/asio/test/read_until.cpp:        boost::asio::buffer(data_, length_) + position_,
+boost_1_69_0/libs/asio/test/read_until.cpp:    boost::asio::post(get_executor(),
+boost_1_69_0/libs/asio/test/read_until.cpp:        boost::asio::detail::bind_handler(
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb1;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb2(25);
+boost_1_69_0/libs/asio/test/read_until.cpp:  std::size_t length = boost::asio::read_until(s, sb1, 'Z');
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, 'Z');
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, 'Z');
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, 'Z', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, 'Z', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, 'Z', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, 'Z', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, 'Z', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, 'Z', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, 'Y', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, 'Y', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, 'Y', ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb1;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb2(25);
+boost_1_69_0/libs/asio/test/read_until.cpp:  std::size_t length = boost::asio::read_until(s, sb1, "XYZ");
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, "XYZ");
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, "XYZ");
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, "XYZ", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, "XYZ", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, "XYZ", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, "XYZ", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, "XYZ", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, "XYZ", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, "WXY", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, "WXY", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, "WXY", ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb1;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb2(25);
+boost_1_69_0/libs/asio/test/read_until.cpp:  std::size_t length = boost::asio::read_until(s, sb1, match_char('Z'));
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, match_char('Z'));
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, match_char('Z'));
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, match_char('Z'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, match_char('Z'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb1, match_char('Z'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, match_char('Z'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, match_char('Z'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, match_char('Z'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, match_char('Y'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, match_char('Y'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  length = boost::asio::read_until(s, sb2, match_char('Y'), ec);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb1;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb2(25);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, 'Z',
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, 'Z',
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, 'Z',
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, 'Z',
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, 'Z',
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, 'Z',
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, 'Y',
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, 'Y',
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, 'Y',
+boost_1_69_0/libs/asio/test/read_until.cpp:  int i = boost::asio::async_read_until(s, sb2, 'Y',
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb1;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb2(25);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, "XYZ",
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, "XYZ",
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, "XYZ",
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, "XYZ",
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, "XYZ",
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, "XYZ",
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, "WXY",
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, "WXY",
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, "WXY",
+boost_1_69_0/libs/asio/test/read_until.cpp:  int i = boost::asio::async_read_until(s, sb2, "WXY",
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb1;
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::streambuf sb2(25);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, match_char('Z'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, match_char('Z'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb1, match_char('Z'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, match_char('Z'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, match_char('Z'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, match_char('Z'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  BOOST_ASIO_CHECK(ec == boost::asio::error::not_found);
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, match_char('Y'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, match_char('Y'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  boost::asio::async_read_until(s, sb2, match_char('Y'),
+boost_1_69_0/libs/asio/test/read_until.cpp:  int i = boost::asio::async_read_until(s, sb2, match_char('Y'),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:typedef boost::asio::buffered_read_stream<
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:    boost::asio::ip::tcp::socket> stream_type;
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:    array<boost::asio::mutable_buffer, 2> mutable_buffers = {{
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(mutable_char_buffer, 10),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(mutable_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:    array<boost::asio::const_buffer, 2> const_buffers = {{
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(const_char_buffer, 10),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(const_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  boost::asio::ip::tcp::acceptor acceptor(io_context,
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:      boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 0));
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  boost::asio::ip::tcp::endpoint server_endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  server_endpoint.address(boost::asio::ip::address_v4::loopback());
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  const boost::asio::const_buffer write_buf = boost::asio::buffer(write_data);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(write_buf + bytes_written));
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  const boost::asio::mutable_buffer read_buf = boost::asio::buffer(read_data);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(read_buf + bytes_read));
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(write_buf + bytes_written));
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(read_buf + bytes_read));
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:      boost::asio::buffer(read_buf), error);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  BOOST_ASIO_CHECK(error == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  BOOST_ASIO_CHECK(e == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  boost::asio::ip::tcp::acceptor acceptor(io_context,
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:      boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 0));
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  boost::asio::ip::tcp::endpoint server_endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  server_endpoint.address(boost::asio::ip::address_v4::loopback());
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  const boost::asio::const_buffer write_buf = boost::asio::buffer(write_data);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(write_buf + bytes_written),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  const boost::asio::mutable_buffer read_buf = boost::asio::buffer(read_data);
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(read_buf + bytes_read),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(write_buf + bytes_written),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:        boost::asio::buffer(read_buf + bytes_read),
+boost_1_69_0/libs/asio/test/buffered_read_stream.cpp:  client_socket.async_read_some(boost::asio::buffer(read_buf), handle_read_eof);
+boost_1_69_0/libs/asio/test/signal_set.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:typedef boost::asio::buffered_stream<
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:    boost::asio::ip::tcp::socket> stream_type;
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  using namespace boost::asio;
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:    array<boost::asio::mutable_buffer, 2> mutable_buffers = {{
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(mutable_char_buffer, 10),
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(mutable_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:    array<boost::asio::const_buffer, 2> const_buffers = {{
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(const_char_buffer, 10),
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(const_char_buffer + 10, 10) }};
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  boost::asio::ip::tcp::acceptor acceptor(io_context,
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:      boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 0));
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  boost::asio::ip::tcp::endpoint server_endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  server_endpoint.address(boost::asio::ip::address_v4::loopback());
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  const boost::asio::const_buffer write_buf = boost::asio::buffer(write_data);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(write_buf + bytes_written));
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  const boost::asio::mutable_buffer read_buf = boost::asio::buffer(read_data);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(read_buf + bytes_read));
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(write_buf + bytes_written));
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(read_buf + bytes_read));
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:      boost::asio::buffer(read_buf), error);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  BOOST_ASIO_CHECK(error == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  BOOST_ASIO_CHECK(e == boost::asio::error::eof);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  boost::asio::io_context io_context;
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  boost::asio::ip::tcp::acceptor acceptor(io_context,
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:      boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), 0));
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  boost::asio::ip::tcp::endpoint server_endpoint = acceptor.local_endpoint();
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  server_endpoint.address(boost::asio::ip::address_v4::loopback());
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  const boost::asio::const_buffer write_buf = boost::asio::buffer(write_data);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(write_buf + bytes_written),
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  const boost::asio::mutable_buffer read_buf = boost::asio::buffer(read_data);
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(read_buf + bytes_read),
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(write_buf + bytes_written),
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:        boost::asio::buffer(read_buf + bytes_read),
+boost_1_69_0/libs/asio/test/buffered_stream.cpp:  client_socket.async_read_some(boost::asio::buffer(read_buf), handle_read_eof);
+boost_1_69_0/libs/asio/test/write_at.cpp:  typedef boost::asio::io_context::executor_type executor_type;
+boost_1_69_0/libs/asio/test/write_at.cpp:  test_random_access_device(boost::asio::io_context& io_context)
+boost_1_69_0/libs/asio/test/write_at.cpp:  bool check_buffers(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/write_at.cpp:      size_t buffer_length = boost::asio::buffer_size(*iter);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bool check_buffers(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/write_at.cpp:    return check_buffers(offset, boost::asio::buffer_sequence_begin(buffers),
+boost_1_69_0/libs/asio/test/write_at.cpp:        boost::asio::buffer_sequence_end(buffers), length);
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t write_some_at(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/write_at.cpp:    return boost::asio::buffer_copy(
+boost_1_69_0/libs/asio/test/write_at.cpp:        boost::asio::buffer(data_, length_) + offset,
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t write_some_at(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/write_at.cpp:  void async_write_some_at(boost::asio::uint64_t offset,
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::post(get_executor(),
+boost_1_69_0/libs/asio/test/write_at.cpp:        boost::asio::detail::bind_handler(
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context& io_context_;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 32);
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 32);
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 32);
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all());
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42));
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers, short_transfer);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 32);
+boost_1_69_0/libs/asio/test/write_at.cpp:  size_t bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42), error);
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  bytes_transferred = boost::asio::write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 32);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::streambuf sb;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::mutable_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(mutable_write_data, sizeof(mutable_write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::array<boost::asio::const_buffer, 2> buffers = { {
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data, 32),
+boost_1_69_0/libs/asio/test/write_at.cpp:    boost::asio::buffer(write_data) + 32 } };
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  std::vector<boost::asio::const_buffer> buffers;
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data, 32));
+boost_1_69_0/libs/asio/test/write_at.cpp:  buffers.push_back(boost::asio::buffer(write_data) + 32);
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, buffers, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::io_context ioc;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::streambuf sb;
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::const_buffer buffers
+boost_1_69_0/libs/asio/test/write_at.cpp:    = boost::asio::buffer(write_data, sizeof(write_data));
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_all(),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_at_least(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(1),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(10),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb,
+boost_1_69_0/libs/asio/test/write_at.cpp:      boost::asio::transfer_exactly(42),
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb, old_style_transfer_all,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  boost::asio::async_write_at(s, 1234, sb, short_transfer,
+boost_1_69_0/libs/asio/test/write_at.cpp:  int i = boost::asio::async_write_at(s, 0, sb, short_transfer,
+boost_1_69_0/libs/asio/test/coroutine.cpp:void yield_break_coro(boost::asio::coroutine& coro)
+boost_1_69_0/libs/asio/test/coroutine.cpp:  boost::asio::coroutine coro;
+boost_1_69_0/libs/asio/test/coroutine.cpp:void return_coro(boost::asio::coroutine& coro)
+boost_1_69_0/libs/asio/test/coroutine.cpp:  boost::asio::coroutine coro;
+boost_1_69_0/libs/asio/test/coroutine.cpp:void exception_coro(boost::asio::coroutine& coro)
+boost_1_69_0/libs/asio/test/coroutine.cpp:  boost::asio::coroutine coro;
+boost_1_69_0/libs/asio/test/coroutine.cpp:void fall_off_end_coro(boost::asio::coroutine& coro)
+boost_1_69_0/libs/asio/test/coroutine.cpp:  boost::asio::coroutine coro;
+boost_1_69_0/libs/log/doc/tmp/sinks_reference.xml:<method name="set_local_address"><type>void</type><parameter name="addr"><paramtype>boost::asio::ip::address const &amp;</paramtype><description><para>The local address </para></description></parameter><parameter name="port"><paramtype>unsigned short</paramtype><default>514</default><description><para>The local port number </para></description></parameter><description><para>The method sets the local address which log records will be sent from.</para><para><note><para>Does not have effect if the backend was constructed to use native syslog API</para></note>
+boost_1_69_0/libs/log/doc/tmp/sinks_reference.xml:<method name="set_target_address"><type>void</type><parameter name="addr"><paramtype>boost::asio::ip::address const &amp;</paramtype><description><para>The remote host address </para></description></parameter><parameter name="port"><paramtype>unsigned short</paramtype><default>514</default><description><para>The port number on the remote host </para></description></parameter><description><para>The method sets the address of the remote host where log records will be sent to.</para><para><note><para>Does not have effect if the backend was constructed to use native syslog API</para></note>
+boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_local_address(boost::asio::ip::address::from_string(addr), port);
+boost_1_69_0/libs/log/src/syslog_backend.cpp:BOOST_LOG_API void syslog_backend::set_local_address(boost::asio::ip::address const& addr, unsigned short port)
+boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_target_address(boost::asio:
 
 
 
