@@ -9701,7 +9701,11 @@ total 28M
 -rw-r--r-- 1 root root 2.3M Feb 22 16:11 libboost_unit_test_framework.a
 -rw-r--r-- 1 root root 4.5M Feb 22 16:11 libboost_wave.a
 -rw-r--r-- 1 root root 793K Feb 22 16:11 libboost_wserialization.a
-### 11.
+### 11. Найдите топ10 самых "тяжёлых".
+## Для выполнения этого задания, я использовал команду:
+ls -lhS boost-libs | head -11
+## Вывод в консоль:
+
 
 
 
