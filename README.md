@@ -31,4 +31,47 @@ Saving to: ‘boost_1_69_0.tar.gz.1’
 boost_1_69_0.tar.gz 100%[===================>] 106.53M  4.32MB/s    in 49s     
 
 2026-02-23 12:17:19 (2.19 MB/s) - ‘boost_1_69_0.tar.gz.1’ saved [111710205/111710205]
+## 2. Разархивируйте скаченный файл в директорию ~/boost_1_69_0
+### Для выполнения этого задания я использовал команду:
+tar -xf boost_1_69_0.tar.gz
+## 3. Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
+### Для выполнения этого задания, я использовал команду:
+find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l
+### Вывод в консоль:
+12
+## 4. Подсчитайте количество файлов в директории ~/boost_1_69_0 включая вложенные директории.
+### Для выполнения этого задания, я использовал следующую команду:
+find ~/boost_1_69_0 -type f | wc -l
+### Вывод в консоль:
+61191
+## 5. Подсчитайте количество заголовочных файлов, файлов с расширением .cpp, сколько остальных файлов (не заголовочных и не .cpp).
+### Для выполнения этого задания, я использовал следующие команды:
+1) find boost_1_69_0 -type f \( -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.hxx" \) | wc -l
+2) find boost_1_69_0 -type f -name "*.cpp" | wc -l
+3) find boost_1_69_0 -type f ! \( -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.hxx" -o -name "*.cpp" \) | wc -l
+### Вывод в консоль:
+1) 15208
+2) 13774
+3) 32209
+## 6. Найдите полный пусть до файла any.hpp внутри библиотеки boost.
+### Для выполнения этого задания, я использовал следующую команду:
+find boost_1_69_0/boost -name "any.hpp" -type f
+### Вывод в консоль:
+boost_1_69_0/boost/fusion/include/any.hpp
+boost_1_69_0/boost/fusion/algorithm/query/detail/any.hpp
+boost_1_69_0/boost/fusion/algorithm/query/any.hpp
+boost_1_69_0/boost/xpressive/detail/utility/any.hpp
+boost_1_69_0/boost/proto/detail/any.hpp
+boost_1_69_0/boost/any.hpp
+boost_1_69_0/boost/hana/any.hpp
+boost_1_69_0/boost/hana/fwd/any.hpp
+boost_1_69_0/boost/spirit/home/support/algorithm/any.hpp
+boost_1_69_0/boost/type_erasure/any.hpp
+## 7. Выведите в консоль все файлы, где упоминается последовательность boost::asio.
+### Для выполнения этого задания, я использовал следующие команды:
+1)cd boost_1_69_0
+2)grep -r "boost::asio"
+### Вывод в консоль:
+
+
 
