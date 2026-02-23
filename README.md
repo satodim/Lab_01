@@ -8753,6 +8753,8 @@ boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_local_address(boost::asio::
 boost_1_69_0/libs/log/src/syslog_backend.cpp:BOOST_LOG_API void syslog_backend::set_local_address(boost::asio::ip::address const& addr, unsigned short port)
 boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_target_address(boost::asio:
 ```
+</details>
+
 ### 8. Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 ## Для выполнения, я исп. следующие команды:
 ```sh
