@@ -175,7 +175,7 @@ boost_1_69_0/boost/type_erasure/any.hpp
 ### Для выполнения этого задания, я использовал следующие команды:
 ```sh
 1)cd boost_1_69_0
-2)grep -r "boost::asio"
+2)grep -rl "boost::asio" boost_1_69_0
 ```
 grep - ищет текст в файлах
 ### Вывод в консоль:
