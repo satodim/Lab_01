@@ -9663,8 +9663,8 @@ gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadap
 ### 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
 ## Для выполнения этого задания, я использовал следующие команды:
 mkdir boost-libs
-cp /usr/local/lib/libboost_*.a ~/boost-libs/ 2>/dev/null
-## Вывод в консоль:
+cp /usr/local/lib/libboost_*.a /home/vboxuser/boost-libs
+### 10.
 
 
 
