@@ -1,6 +1,95 @@
 # Lab_01
+Данная лабораторная работа посвещена изучению утилит для разработки проектов.
+
+## Tutorial
+
+Задаём переменные для работы с нашим аккаунтом на GitHub, а также создаём псевдоним для команды edit (Я выбрал редактор nano):
+```bash
+$ export GITHUB_USERNAME=<имя_пользователя>
+$ export GIST_TOKEN=<сохраненный_токен>
+$ alias edit=<nano|vi|vim|subl>
+```
+
+Создаем рабочую папку внутри каталога текущего пользователя и переходим туда, затем проверяем рабочий каталог командой pwd. Далее возвращаемся назад на уровень вверх с помощью команды cd .. и также проверяем рабочий каталог командой pwd:
+```sh
+$ mkdir -p ${GITHUB_USERNAME}/workspace
+$ cd ${GITHUB_USERNAME}/workspace
+$ pwd
+$ cd ..
+$ pwd
+```
+В моём случае сначала был такой вывод:
+```sh
+$ /home/user1/bashkirgreg/workspace
+```
+А потом такой:
+```sh
+$ /home/user1/bashkirgreg
+```
+Остаёмся в этом каталоге.
+
+Создаем структуру подпапок для разделения задач, проектов и отчетов. Затем переходим обратно в рабочую директорию с помощью команды cd:
+```sh
+$ mkdir -p workspace/tasks/
+$ mkdir -p workspace/projects/
+$ mkdir -p workspace/reports/
+$ cd workspace
+```
+
+Происходит установка Node.js, во время которой файл загружается, распаковывается, удаляется архив, и содержимое перемещается в удобную директорию:
+```sh
+# Debian
+$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+$ tar -xf node-v6.11.5-linux-x64.tar.xz
+$ rm -rf node-v6.11.5-linux-x64.tar.xz
+$ mv node-v6.11.5-linux-x64 node
+```
+
+Посмотрим список файлов в установленной директории Node.js, чтобы убедиться, что всё скачалось верно:
+```sh
+$ ls node/bin
+$ echo ${PATH}
+```
+Изменяем пути для доступности Node.js, так что теперь файлы будут доступны глобально:
+```sh
+$ export PATH=${PATH}:`pwd`/node/bin
+$ echo ${PATH}
+```
+Созданиём скрипт активации, который активирует путь для Node.js всякий раз, когда он запускается:
+```sh
+$ mkdir scripts
+$ cat > scripts/activate<<EOF
+export PATH=\${PATH}:`pwd`/node/bin
+EOF
+$ source scripts/activate
+```
+
+Скачиваем пакет gist:
+```sh
+$ gem install gist
+```
+
+Назначаем специальные права доступа и помещаем токен в защищённый файл, потому что без него невозможно отправить данные на сервер:
+```sh
+$ (umask 0077 && echo ${GIST_TOKEN} > ~/.gist)
+```
+
+## Report
+
+Сначала создаётся отдельная папка, в которую копируются материалы лабораторной работы. Далее, используя текстовый редактор, мы редактируем и дополняем содержание нужного файла, формируя полноценный отчёт. Завершающим этапом становится публикация полученного документа на площадке GitHub:
+```sh
+$ export LAB_NUMBER=01
+$ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
+$ mkdir reports/lab${LAB_NUMBER}
+$ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
+$ cd reports/lab${LAB_NUMBER}
+$ edit REPORT.md
+$ gist REPORT.md
+```
+
 ## 1. Скачайте библиотеку boost с помощью утилиты wget. Адрес для скачивания https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz.
 ### Для выполнения этого адания, я использовал следующую команду: 
+```
 wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 ### Вывод в консоль:
 --2026-02-23 12:16:26--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
@@ -31,32 +120,50 @@ Saving to: ‘boost_1_69_0.tar.gz.1’
 boost_1_69_0.tar.gz 100%[===================>] 106.53M  4.32MB/s    in 49s     
 
 2026-02-23 12:17:19 (2.19 MB/s) - ‘boost_1_69_0.tar.gz.1’ saved [111710205/111710205]
+```
 ## 2. Разархивируйте скаченный файл в директорию ~/boost_1_69_0
 ### Для выполнения этого задания я использовал команду:
+```
 tar -xf boost_1_69_0.tar.gz
+```
 ## 3. Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
 ### Для выполнения этого задания, я использовал команду:
+```
 find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l
+```
 ### Вывод в консоль:
+```
 12
+```
 ## 4. Подсчитайте количество файлов в директории ~/boost_1_69_0 включая вложенные директории.
 ### Для выполнения этого задания, я использовал следующую команду:
+```
 find ~/boost_1_69_0 -type f | wc -l
+```
 ### Вывод в консоль:
+```
 61191
+```
 ## 5. Подсчитайте количество заголовочных файлов, файлов с расширением .cpp, сколько остальных файлов (не заголовочных и не .cpp).
 ### Для выполнения этого задания, я использовал следующие команды:
+```
 1) find boost_1_69_0 -type f \( -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.hxx" \) | wc -l
 2) find boost_1_69_0 -type f -name "*.cpp" | wc -l
 3) find boost_1_69_0 -type f ! \( -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.hxx" -o -name "*.cpp" \) | wc -l
+```
 ### Вывод в консоль:
+```
 1) 15208
 2) 13774
 3) 32209
+```
 ## 6. Найдите полный пусть до файла any.hpp внутри библиотеки boost.
 ### Для выполнения этого задания, я использовал следующую команду:
+```
 find boost_1_69_0/boost -name "any.hpp" -type f
+```
 ### Вывод в консоль:
+```
 boost_1_69_0/boost/fusion/include/any.hpp
 boost_1_69_0/boost/fusion/algorithm/query/detail/any.hpp
 boost_1_69_0/boost/fusion/algorithm/query/any.hpp
@@ -67,11 +174,15 @@ boost_1_69_0/boost/hana/any.hpp
 boost_1_69_0/boost/hana/fwd/any.hpp
 boost_1_69_0/boost/spirit/home/support/algorithm/any.hpp
 boost_1_69_0/boost/type_erasure/any.hpp
+```
 ## 7. Выведите в консоль все файлы, где упоминается последовательность boost::asio.
 ### Для выполнения этого задания, я использовал следующие команды:
+```
 1)cd boost_1_69_0
 2)grep -r "boost::asio"
+```
 ### Вывод в консоль:
+```
 boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __io_service__ ['boost::asio::io_sevice]]
 boost_1_69_0/libs/coroutine2/doc/coro.qbk:[def __yield_context__ ['boost::asio::yield_context]]
 boost_1_69_0/libs/coroutine2/doc/motivation.qbk:            session(boost::asio::io_service& io_service) :
@@ -8644,13 +8755,18 @@ boost_1_69_0/libs/log/doc/tmp/sinks_reference.xml:<method name="set_target_addre
 boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_local_address(boost::asio::ip::address::from_string(addr), port);
 boost_1_69_0/libs/log/src/syslog_backend.cpp:BOOST_LOG_API void syslog_backend::set_local_address(boost::asio::ip::address const& addr, unsigned short port)
 boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_target_address(boost::asio:
+```
 ### 8. Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 ## Для выполнения, я исп. следующие команды:
+```
 1) sudo apt install g++ build-essential
 2) ./bootstrap.sh --prefix=/usr/local
 3) ./b2 install
-## Вывод в консоль:
-1)eading package lists... Done
+```
+## Вывод в консоль: 
+1)
+```
+eading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
 g++ is already the newest version (4:13.2.0-7ubuntu1).
@@ -8734,7 +8850,9 @@ Setting up dpkg-dev (1.22.6ubuntu6.5) ...
 Setting up build-essential (12.10ubuntu1) ...
 Processing triggers for man-db (2.12.0-4build2) ...
 Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+```
 2)
+```
 Building Boost.Build engine with toolset gcc... tools/build/src/engine/bin.linuxx86_64/b2
 Unicode/ICU support for Boost.Regex?... /usr
 Generating Boost.Build configuration in project-config.jam...
@@ -8754,7 +8872,9 @@ Further information:
      
    - Boost.Build documentation:
      http://www.boost.org/build/doc/html/index.html
+```
 3)
+```
 Performing configuration checks
 
     - default address-model    : 64-bit (cached)
@@ -9660,14 +9780,20 @@ In file included from /usr/include/c++/13/string:49,
 ...failed gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/collator.o...
 gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/conversion.o
 gcc.compile.c++ bin.v2/libs/locale/build/gcc-13.3.0/release/link-static/threadapi-pthread/threading-multi/visibility-hidden/icu/date_time.o
+```
 ### 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
 ## Для выполнения этого задания, я использовал следующие команды:
+```
 mkdir boost-libs
 cp /usr/local/lib/libboost_*.a /home/vboxuser/boost-libs
+```
 ### 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
 ## Для выполнения этого задания, я использовал команду:
+```
 ls -lh boost-libs
+```
 ## Вывод в консоль:
+```
 total 28M
 -rw-r--r-- 1 root root 2.6K Feb 22 16:11 libboost_atomic.a
 -rw-r--r-- 1 root root 235K Feb 22 16:11 libboost_chrono.a
@@ -9701,10 +9827,14 @@ total 28M
 -rw-r--r-- 1 root root 2.3M Feb 22 16:11 libboost_unit_test_framework.a
 -rw-r--r-- 1 root root 4.5M Feb 22 16:11 libboost_wave.a
 -rw-r--r-- 1 root root 793K Feb 22 16:11 libboost_wserialization.a
+```
 ### 11. Найдите топ10 самых "тяжёлых".
 ## Для выполнения этого задания, я использовал команду:
+```
 ls -lhS boost-libs | head -11
+```
 ## Вывод в консоль:
+```
 total 28M
 -rw-r--r-- 1 root root 4.5M Feb 22 16:11 libboost_wave.a
 -rw-r--r-- 1 root root 3.2M Feb 22 16:11 libboost_regex.a
@@ -9716,7 +9846,7 @@ total 28M
 -rw-r--r-- 1 root root 1.6M Feb 22 16:11 libboost_program_options.a
 -rw-r--r-- 1 root root 1.2M Feb 22 16:11 libboost_serialization.a
 -rw-r--r-- 1 root root 845K Feb 22 16:11 libboost_graph.a
-
+```
 
 
 
