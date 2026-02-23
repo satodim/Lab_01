@@ -8644,6 +8644,12 @@ boost_1_69_0/libs/log/doc/tmp/sinks_reference.xml:<method name="set_target_addre
 boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_local_address(boost::asio::ip::address::from_string(addr), port);
 boost_1_69_0/libs/log/src/syslog_backend.cpp:BOOST_LOG_API void syslog_backend::set_local_address(boost::asio::ip::address const& addr, unsigned short port)
 boost_1_69_0/libs/log/src/syslog_backend.cpp:    set_target_address(boost::asio:
-
+### 8. Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
+## Для выполнения, я исп. следующие команды:
+1) sudo apt install g++ build-essential
+2) ./bootstrap.sh --prefix=/usr/local
+3) ./b2 install
+## Вывод в консоль:
+1)
 
 
