@@ -9668,7 +9668,40 @@ cp /usr/local/lib/libboost_*.a /home/vboxuser/boost-libs
 ## Для выполнения этого задания, я использовал команду:
 ls -lh boost-libs
 ## Вывод в консоль:
-
+total 28M
+-rw-r--r-- 1 root root 2.6K Feb 22 16:11 libboost_atomic.a
+-rw-r--r-- 1 root root 235K Feb 22 16:11 libboost_chrono.a
+-rw-r--r-- 1 root root 148K Feb 22 16:11 libboost_container.a
+-rw-r--r-- 1 root root  21K Feb 22 16:11 libboost_context.a
+-rw-r--r-- 1 root root 330K Feb 22 16:11 libboost_contract.a
+-rw-r--r-- 1 root root 152K Feb 22 16:11 libboost_date_time.a
+-rw-r--r-- 1 root root 1.7K Feb 22 16:11 libboost_exception.a
+-rw-r--r-- 1 root root 231K Feb 22 16:11 libboost_fiber.a
+-rw-r--r-- 1 root root 414K Feb 22 16:11 libboost_filesystem.a
+-rw-r--r-- 1 root root 845K Feb 22 16:11 libboost_graph.a
+-rw-r--r-- 1 root root 170K Feb 22 16:11 libboost_iostreams.a
+-rw-r--r-- 1 root root 541K Feb 22 16:11 libboost_math_c99.a
+-rw-r--r-- 1 root root 448K Feb 22 16:11 libboost_math_c99f.a
+-rw-r--r-- 1 root root 463K Feb 22 16:11 libboost_math_c99l.a
+-rw-r--r-- 1 root root 2.7M Feb 22 16:11 libboost_math_tr1.a
+-rw-r--r-- 1 root root 2.6M Feb 22 16:11 libboost_math_tr1f.a
+-rw-r--r-- 1 root root 2.7M Feb 22 16:11 libboost_math_tr1l.a
+-rw-r--r-- 1 root root 212K Feb 22 16:11 libboost_prg_exec_monitor.a
+-rw-r--r-- 1 root root 1.6M Feb 22 16:11 libboost_program_options.a
+-rw-r--r-- 1 root root  80K Feb 22 16:11 libboost_random.a
+-rw-r--r-- 1 root root 3.2M Feb 22 16:11 libboost_regex.a
+-rw-r--r-- 1 root root 1.2M Feb 22 16:11 libboost_serialization.a
+-rw-r--r-- 1 root root  24K Feb 22 16:11 libboost_stacktrace_addr2line.a
+-rw-r--r-- 1 root root  20K Feb 22 16:11 libboost_stacktrace_backtrace.a
+-rw-r--r-- 1 root root  14K Feb 22 16:11 libboost_stacktrace_basic.a
+-rw-r--r-- 1 root root 2.8K Feb 22 16:11 libboost_stacktrace_noop.a
+-rw-r--r-- 1 root root 1.5K Feb 22 16:11 libboost_system.a
+-rw-r--r-- 1 root root 2.3M Feb 22 16:11 libboost_test_exec_monitor.a
+-rw-r--r-- 1 root root  53K Feb 22 16:11 libboost_timer.a
+-rw-r--r-- 1 root root 2.3M Feb 22 16:11 libboost_unit_test_framework.a
+-rw-r--r-- 1 root root 4.5M Feb 22 16:11 libboost_wave.a
+-rw-r--r-- 1 root root 793K Feb 22 16:11 libboost_wserialization.a
+### 11.
 
 
 
